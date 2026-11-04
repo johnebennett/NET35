@@ -1,0 +1,33 @@
+/* Optional Obsidian snippet. Scoped to the generated reference notes. */
+.project-reference {
+  --file-line-width: 1200px;
+  --line-height-normal: 1.6;
+}
+.theme-light .project-reference {
+  --text-normal: #203044;
+  --text-muted: #526378;
+  --link-color: #135ca8;
+  --link-unresolved-color: #135ca8;
+  --background-primary: #fafbfd;
+}
+.project-reference.markdown-rendered h2 {
+  border-bottom: 2px solid var(--background-modifier-border);
+  padding-top: 24px;
+}
+.project-reference.markdown-rendered h4 {
+  margin-bottom: 8px;
+}
+.project-reference.markdown-rendered li {
+  margin: 8px 0;
+}
+.project-reference.markdown-rendered :not(pre) > code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+.project-reference.markdown-rendered blockquote {
+  padding: 16px;
+  background: var(--background-secondary);
+  border-radius: 8px;
+  border-left: none;
+}
