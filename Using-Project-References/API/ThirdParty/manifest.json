@@ -1,0 +1,32 @@
+[
+    {
+        "File":  "Newtonsoft.Json.dll",
+        "OriginalPath":  "E:\\Source\\GitHub\\NET35-CoreAssemblies\\NEW\\RequestProcessor\\bin\\Debug\\Newtonsoft.Json.dll",
+        "FileVersion":  "6.0.1.17001",
+        "SHA256":  "C403AF8F4EC9836B09A06DBCC9E26EF65C294AEAB7F82A866C185C41909247CC"
+    },
+    {
+        "File":  "FirebirdSql.Data.FirebirdClient.dll",
+        "OriginalPath":  "E:\\Source\\GitHub\\NET35-CoreAssemblies\\NEW\\RequestProcessor\\bin\\Debug\\FirebirdSql.Data.FirebirdClient.dll",
+        "FileVersion":  "3.1.0.0",
+        "SHA256":  "BD815149C161E68D8B020A5F54C7659537AB04E3CAFE06DB843423FCF69F7D50"
+    },
+    {
+        "File":  "System.Data.SQLite.dll",
+        "OriginalPath":  "E:\\Source\\GitHub\\NET35-CoreAssemblies\\ProgressLogging\\bin\\Release\\System.Data.SQLite.dll",
+        "FileVersion":  "1.0.119.0",
+        "SHA256":  "0A5F13A6A0CA34FE0881120D7FE624AED22A77F14AA382F1A3F0BF99B0AF8F3D"
+    },
+    {
+        "File":  "x86\\SQLite.Interop.dll",
+        "OriginalPath":  "E:\\Source\\GitHub\\NET35-CoreAssemblies\\ActionBase\\bin\\Release\\x86\\SQLite.Interop.dll",
+        "FileVersion":  "1.0.119.0",
+        "SHA256":  "EBED2B1037C6A6A3E64FA5C29BD03760AFF4759CC08364E6966AE8DCD5BA1C29"
+    },
+    {
+        "File":  "x64\\SQLite.Interop.dll",
+        "OriginalPath":  "E:\\Source\\GitHub\\NET35-CoreAssemblies\\ActionBase\\bin\\Release\\x64\\SQLite.Interop.dll",
+        "FileVersion":  "1.0.119.0",
+        "SHA256":  "B33DE48C2CAB1ABE43971843CD796408C6F4BEAE5185868C342B635E7480C534"
+    }
+]
