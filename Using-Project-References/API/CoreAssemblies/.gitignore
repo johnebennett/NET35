@@ -1,1 +1,3 @@
 /.nuget-tools/
+# Build results
+[Bb]ackups/
