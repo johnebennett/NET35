@@ -70,3 +70,6 @@ site/
 
 # html files for example generated from the md files in VS Code Markdown extension
 *.html
+
+# Shared packages.config restore directory
+/packages/
