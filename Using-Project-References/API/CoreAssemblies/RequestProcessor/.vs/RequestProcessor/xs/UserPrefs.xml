@@ -1,0 +1,29 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="RequestProcessor.cs">
+    <Files>
+      <File FileName="RequestProcessor.cs" Line="78" Column="22" />
+      <File FileName="../ConsoleConsumer/EAOfficeAPI.cs" Line="55" Column="18" />
+      <File FileName="../../EAOfficeAPI.cs" Line="55" Column="18" />
+      <File FileName="../../WebServer/Utilities/EAOfficeAPI.cs" Line="57" Column="18" />
+      <File FileName="../ConsoleHost/Program.cs" Line="47" Column="26" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="RequestProcessor" expanded="True">
+            <Node name="RequestProcessor" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="RequestProcessor.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
