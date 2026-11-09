@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <ProjectGuid>{B7086311-47E3-423C-95D8-9BC502EADC94}</ProjectGuid>
@@ -50,17 +50,11 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ActionBase">
-      <HintPath>References\ActionBase.dll</HintPath>
-    </Reference>
-    <Reference Include="CommonUtilities">
-      <HintPath>References\CommonUtilities.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>References\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -74,11 +68,8 @@
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="UsefulDBMethods">
-      <HintPath>References\UsefulDBMethods.dll</HintPath>
-    </Reference>
     <Reference Include="FirebirdSql.Data.FirebirdClient">
-      <HintPath>References\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+      <HintPath>..\..\packages\FirebirdSql.Data.FirebirdClient.3.1.0.0\lib\net35\FirebirdSql.Data.FirebirdClient.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -91,9 +82,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actions" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\API\CoreAssemblies\ActionBase\ActionBase.csproj">
+      <Project>{294D6321-28CE-4397-BBF0-A4683EFEBF8D}</Project>
+      <Name>ActionBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\API\CoreAssemblies\CommonUtilities\CommonUtilities.csproj">
+      <Project>{37E6C7D0-D8C9-44D0-B428-3A2D88AC9B1B}</Project>
+      <Name>CommonUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\API\CoreAssemblies\UsefulDBMethods\UsefulDBMethods.csproj">
+      <Project>{2AEA18AB-B0EC-4D05-AD7F-42C4FC2AAB04}</Project>
+      <Name>UsefulDBMethods</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
