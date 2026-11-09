@@ -1,0 +1,87 @@
+Processing the file: SetupPageEntries_Add.json
+arg: D
+SetupPageEntries_Add.json
+
+{
+"common":{
+"plugin": "PortfolioAddButton",
+"version": "",
+"userName": "SomeValue",
+"password": "SomeValue",
+"companyId": "1050",
+"clientId": "35530",
+"controller": "",
+"Action": "SubLedgerDlg",
+"debug": ""
+}
+,"data":{
+"PortfolioId": "36911","Option1Id": "15","Option2Id": "0","GridId": "0","Category": "SetupPageEntries"
+}
+}
+
+
+Using HTTP Binding
+Service Location: http://softwarecustomisedsolutions.com:55000/EAOfficeAPI
+{      "Property": "25 Acheson Place, Coburg, Vic, 3058."
+,
+      "Client": "Brake Tyre & Diesel Pty Ltd."
+,
+      "Owner": "Mr & Mrs S & N Simeoni"
+,
+  "bankaccounts": [
+    {
+      "Name": "Rental Trust",
+      "Value": "2",
+      "Default": "1"
+    }
+,
+    {
+      "Name": "Security Bonds",
+      "Value": "1"
+    }
+  ]
+,
+      "SubLedgerName": ""
+,
+      "StatementRunNumber": "1"
+,
+      "ChargeStatementFee": "N"
+,
+      "StatementFee": "2.50"
+,
+      "Holdover": "0.00"
+,
+      "HoldOverReason": ""
+,
+      "ChangeStatementDetails": "N"
+,
+      "ChangeBSBDetails": "N"
+,
+      "ChangeStatementName": ""
+,
+      "ChangeStatementAddress1": ""
+,
+      "ChangeStatementAddress2": ""
+,
+      "ChangeStatementAddress3": ""
+,
+      "ChangeStatementAddress4": ""
+,
+      "ChangeBSB": ""
+,
+      "ChangeAccountNumber": ""
+,
+      "OwnersCorporationSubledgerABN": ""
+,
+      "LedgerID": "20753"
+,
+      "LastChanged": ""
+,
+      "SaveSQL": " execute procedure easubledgeraddeditsave(1050,36911,@subledgerid,@bankid ,@subledgername,@StatementRunNumber,@chargestatementfee,@statementfree ,@heldover,@heldoverreason,@changestatement,@changestatementname,@changestatementaddress1 ,@changestatementaddress2,@changestatementaddress3,@changestatementaddress4 ,@changebsbdetails,@changebsb,@changeaccountnumber,@changeocabn,35530)"
+,
+      "ShowStrataAbn": "N"
+,
+      "ShowChangeStatement": "N"
+,
+      "ShowChangeBsb": "N"
+}

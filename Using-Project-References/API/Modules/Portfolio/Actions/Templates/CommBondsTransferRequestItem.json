@@ -1,0 +1,73 @@
+{
+  "author": "John Bennett",
+  "fileName": "CommBondsTransferRequestItem",
+  "namespace": "Actions.Portfolio",
+  "className": "CommBondsTransferRequestItem",
+  "properties":
+    [
+        {"name": "PortfolioId", "validate": "Y", "dataType": "int"},
+        {"name": "SubLedgerId", "validate": "Y", "dataType": "int"},
+        {"name": "Details", "validate": "N", "dataType": "string"},
+        {"name": "LodgedOn", "validate": "Y", "dataType": "string"},
+        {"name": "LodgedAmount", "validate": "N", "dataType": "string"},
+        {"name": "ExpiryDate", "validate": "Y", "dataType": "string"},
+        {"name": "DoesNotExpire", "validate": "Y", "dataType": "string"},
+        {"name": "BondHeld", "validate": "Y", "dataType": "int"},
+        {"name": "BSB", "validate": "Y", "dataType": "string"},
+        {"name": "AccountNumber", "validate": "Y", "dataType": "string"},
+        {"name": "ShortBankName", "validate": "Y", "dataType": "string"}
+    ],
+  "includes":
+  [
+    "System",
+    "System.Data",
+    "System.Collections.Generic",
+    "CommonUtilities",
+    "EAOfficeAPI",
+    "Newtonsoft.Json.Linq"
+  ],
+  "methodStubs":
+    [
+      {"region": "Load from DataObject",
+       "content":
+       [       
+				"//public string Load(ActionBase ActionBase, JObject DataObject)",
+				"public string Load(ActionBase ActionBase)",
+          "{",
+          "    string Result = \"\";",
+          "    string ClassName = this.GetType().ToString();",
+          "    string Method = ClassName + \".LoadFromDataObject\";",
+          "",
+          "    ActionBase.LogOnInsideMethod(Method);",
+          "",
+          "    try",
+          "    {",
+          "        Clear();",
+          "",
+          "        __ClassName__ TempItem = new __ClassName__();",
+          "        Result = CommonMethods.Load__ClassName__(ActionBase, ref TempItem);",
+          "        if (!string.IsNullOrEmpty(Result))",
+          "        {",
+          "            Result = ActionBase.LogOnProcessingError(Method, Result, \"\");",
+          "        }",
+          "        else",
+          "        {",
+          "            Result = Update(TempItem);",
+          "        }",
+          "    }",
+          "    catch (Exception Ex)",
+          "    {",
+          "        Result = ActionBase.LogOnException(Method, Ex, \"\");",
+          "        return Result;",
+          "    }",
+          "    finally",
+          "    {",
+          "        ActionBase.LogOnLeavingMethod(Method);",
+          "    }",
+          "",
+          "    return Result;",
+          "}"
+       ]
+       }
+    ]
+}

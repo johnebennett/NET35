@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{50646D63-7F4D-414B-AE80-D1D43902A472}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AddStorageDlg</RootNamespace>
+    <AssemblyName>ToDo.AddStorageDlg</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\CommonAPIReferences</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\CommonAPIReferences</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AddStorageDlg.cs" />
+    <Compile Include="Actions\CommonMethods.cs" />
+    <Compile Include="Actions\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\SetupPageEntries.cs" />
+    <Compile Include="Actions\UploadFiles.cs" />
+    <Compile Include="Actions\UploadFilesRequestItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ActionBase">
+      <HintPath>..\..\..\..\..\..\Source\EAOffice\CommonAPIReferences\ActionBase.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CommonUtilities">
+      <HintPath>..\..\..\..\..\..\Source\EAOffice\CommonAPIReferences\CommonUtilities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\Source\EAOffice\CommonAPIReferences\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ProgressLogging">
+      <HintPath>..\..\..\..\..\..\Source\EAOffice\CommonAPIReferences\ProgressLogging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RequestProcessor">
+      <HintPath>..\..\..\..\..\..\Source\EAOffice\CommonAPIReferences\RequestProcessor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="UsefulDBMethods">
+      <HintPath>..\..\..\..\..\..\Source\EAOffice\CommonAPIReferences\UsefulDBMethods.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

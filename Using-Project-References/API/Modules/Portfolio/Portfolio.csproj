@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{0732B851-BDD1-4D31-A272-83789E46E6D9}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Portfolio</RootNamespace>
+    <AssemblyName>Portfolio</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <BaseAddress>4194304</BaseAddress>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\..\..\CommonAPIReferences</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\..\CommonAPIReferences</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CoreAssemblies\ActionBase\ActionBase.csproj">
+      <Project>{294D6321-28CE-4397-BBF0-A4683EFEBF8D}</Project>
+      <Name>ActionBase</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ComboBoxEntries\ComboBoxEntries.csproj">
+      <Project>{75F4A18E-CCFE-4BAD-B8E8-F736986A7E17}</Project>
+      <Name>ComboBoxEntries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CoreAssemblies\CommonUtilities\CommonUtilities.csproj">
+      <Project>{37E6C7D0-D8C9-44D0-B428-3A2D88AC9B1B}</Project>
+      <Name>CommonUtilities</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <ProjectReference Include="..\..\CoreAssemblies\ProgressLogging\ProgressLogging.csproj">
+      <Project>{A2A4B25E-10A9-47F2-B63C-917BA35153BE}</Project>
+      <Name>ProgressLogging</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CoreAssemblies\RequestProcessor\RequestProcessor.csproj">
+      <Project>{9225BF9B-950C-4A87-96DC-7FE6AA3A5F92}</Project>
+      <Name>RequestProcessor</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+    </Reference>
+    <Reference Include="System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+    </Reference>
+    <ProjectReference Include="..\..\CoreAssemblies\UsefulDBMethods\UsefulDBMethods.csproj">
+      <Project>{2AEA18AB-B0EC-4D05-AD7F-42C4FC2AAB04}</Project>
+      <Name>UsefulDBMethods</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\AddPortfolioComment.cs" />
+    <Compile Include="Actions\AddPortfolioCommentRequestItem.cs" />
+    <Compile Include="Actions\AgentNoDlg\CommonMethods.cs" />
+    <Compile Include="Actions\AgentNoDlg\SaveEntries.cs" />
+    <Compile Include="Actions\AgentNoDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\AgentNoDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\AgentNoMaster.cs" />
+    <Compile Include="Actions\BankingDlg\CommonMethods.cs" />
+    <Compile Include="Actions\BankingDlg\SaveEntries.cs" />
+    <Compile Include="Actions\BankingDlg\SaveEntriesRequestItem.cs" />
+    <Compile Include="Actions\BankingDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\BankingDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\BankingInfoMaster.cs" />
+    <Compile Include="Actions\Column3ControlActionsMaster.cs" />
+    <Compile Include="Actions\Column3ControlActions\AddBondLedger.cs" />
+    <Compile Include="Actions\Column3ControlActions\AddBondLedgerRequestItem.cs" />
+    <Compile Include="Actions\Column3ControlActions\CommonMethods.cs" />
+    <Compile Include="Actions\CommBondsApplyChanges.cs" />
+    <Compile Include="Actions\CommBondsApplyChangesRequestItem.cs" />
+    <Compile Include="Actions\CommBondsTransfer.cs" />
+    <Compile Include="Actions\CommBondsTransferRequestItem.cs" />
+    <Compile Include="Actions\CommonMethods.cs" />
+    <Compile Include="Actions\CreditorMaster.cs" />
+    <Compile Include="Actions\Creditor\AllPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\Creditor\ChangeActiveStatus.cs" />
+    <Compile Include="Actions\Creditor\CommonMethods.cs" />
+    <Compile Include="Actions\Creditor\DisplayGridReport.cs" />
+    <Compile Include="Actions\Creditor\DisplayGridReportRequestItem.cs" />
+    <Compile Include="Actions\Creditor\NotesChanged.cs" />
+    <Compile Include="Actions\Creditor\Option1Changed.cs" />
+    <Compile Include="Actions\Creditor\Option2Changed.cs" />
+    <Compile Include="Actions\Creditor\SaveChanges.cs" />
+    <Compile Include="Actions\Creditor\SetupPageEntries.cs" />
+    <Compile Include="Actions\Creditor\UpdateNote.cs" />
+    <Compile Include="Actions\DefaultMethods.cs" />
+    <Compile Include="Actions\DisplayCommentDlgGridReport.cs" />
+    <Compile Include="Actions\DisplayCommentDlgGridReportRequestItem.cs" />
+    <Compile Include="Actions\DisplayCommentDlgPdfReport.cs" />
+    <Compile Include="Actions\DisplayMgmtPdfReport.cs" />
+    <Compile Include="Actions\DisplayMgmtPdfReportRequestItem.cs" />
+    <Compile Include="Actions\DisplayOCCertificateReport.cs" />
+    <Compile Include="Actions\DisplayOCCertificateReportRequestItem.cs" />
+    <Compile Include="Actions\DisplayReport.cs" />
+    <Compile Include="Actions\DisplayReportRequestItem.cs" />
+    <Compile Include="Actions\DisplayResBondsReport.cs" />
+    <Compile Include="Actions\DisplayResBondsReportRequestItem.cs" />
+    <Compile Include="Actions\DisplayStmtKitReport.cs" />
+    <Compile Include="Actions\DisplayStmtKitReportRequestItem.cs" />
+    <Compile Include="Actions\EAResComSalesGroupRequestItem.cs" />
+    <Compile Include="Actions\EAResComSalesGroupUpdateNoteRequestItem.cs" />
+    <Compile Include="Actions\IncludeStmtKitForAccount.cs" />
+    <Compile Include="Actions\IncludeStmtKitForAccountReport.cs" />
+    <Compile Include="Actions\IncludeStmtKitForAccountReportRequestItem.cs" />
+    <Compile Include="Actions\IncludeStmtKitForAccountRequestItem.cs" />
+    <Compile Include="Actions\InsuranceMaster.cs" />
+    <Compile Include="Actions\Insurance\AllPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\Insurance\ChangeActiveStatus.cs" />
+    <Compile Include="Actions\Insurance\CommonMethods.cs" />
+    <Compile Include="Actions\Insurance\DisplayGridReport.cs" />
+    <Compile Include="Actions\Insurance\DisplayGridReportRequestItem.cs" />
+    <Compile Include="Actions\Insurance\NotesChanged.cs" />
+    <Compile Include="Actions\Insurance\Option1Changed.cs" />
+    <Compile Include="Actions\Insurance\Option2Changed.cs" />
+    <Compile Include="Actions\Insurance\SaveChanges.cs" />
+    <Compile Include="Actions\Insurance\SetupPageEntries.cs" />
+    <Compile Include="Actions\Insurance\UpdateNote.cs" />
+    <Compile Include="Actions\KeyNumberMaster.cs" />
+    <Compile Include="Actions\KeyNumber\AssignKey.cs" />
+    <Compile Include="Actions\KeyNumber\CommonMethods.cs" />
+    <Compile Include="Actions\KeyNumber\DisplayPdfReport.cs" />
+    <Compile Include="Actions\KeyNumber\DisplayPdfReportRequestItem.cs" />
+    <Compile Include="Actions\KeyNumber\RemoveKey.cs" />
+    <Compile Include="Actions\KeyNumber\SetupPageEntries.cs" />
+    <Compile Include="Actions\KeyNumber\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\KeyNumber\UpdateKeysRequestItem.cs" />
+    <Compile Include="Actions\LotOwnerMaster.cs" />
+    <Compile Include="Actions\LotOwner\AllPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\LotOwner\ChangeActiveStatus.cs" />
+    <Compile Include="Actions\LotOwner\CommonMethods.cs" />
+    <Compile Include="Actions\LotOwner\DisplayGridReport.cs" />
+    <Compile Include="Actions\LotOwner\DisplayGridReportRequestItem.cs" />
+    <Compile Include="Actions\LotOwner\NotesChanged.cs" />
+    <Compile Include="Actions\LotOwner\Option1Changed.cs" />
+    <Compile Include="Actions\LotOwner\Option2Changed.cs" />
+    <Compile Include="Actions\LotOwner\SaveChanges.cs" />
+    <Compile Include="Actions\LotOwner\SetupPageEntries.cs" />
+    <Compile Include="Actions\LotOwner\UpdateNote.cs" />
+    <Compile Include="Actions\ManagementMaster.cs" />
+    <Compile Include="Actions\Management\ChangeActiveStatus.cs" />
+    <Compile Include="Actions\Management\CommonMethods.cs" />
+    <Compile Include="Actions\Management\DisplayGridReport.cs" />
+    <Compile Include="Actions\Management\DisplayGridReportRequestItem.cs" />
+    <Compile Include="Actions\Management\ManagementPageRequestItem.cs" />
+    <Compile Include="Actions\Management\NotesChanged.cs" />
+    <Compile Include="Actions\Management\Option1Changed.cs" />
+    <Compile Include="Actions\Management\Option2Changed.cs" />
+    <Compile Include="Actions\Management\SaveChanges.cs" />
+    <Compile Include="Actions\Management\SetupPageEntries.cs" />
+    <Compile Include="Actions\Management\UpdateNote.cs" />
+    <Compile Include="Actions\OwnersCertificateDialogContent.cs" />
+    <Compile Include="Actions\OwnersCertificateDialogContentRequestItem.cs" />
+    <Compile Include="Actions\OwnersCertificateSetupEmail.cs" />
+    <Compile Include="Actions\PortfolioSelectEntryItems.cs" />
+    <Compile Include="Actions\ProcessReport.cs" />
+    <Compile Include="Actions\ProcessResBondsBPay.cs" />
+    <Compile Include="Actions\ProcessResBondsBPayRequestItem.cs" />
+    <Compile Include="Actions\ProcessResBondsDirectDebit.cs" />
+    <Compile Include="Actions\ProcessResBondsDirectDebitRequestItem.cs" />
+    <Compile Include="Actions\RefreshPortfolioTypeEntries.cs" />
+    <Compile Include="Actions\ResBondsApplyChanges.cs" />
+    <Compile Include="Actions\ResBondsApplyChangesRequestItem.cs" />
+    <Compile Include="Actions\SearchGridRequestItem.cs" />
+    <Compile Include="Actions\SearchResults.cs" />
+    <Compile Include="Actions\SearchResultsOld.cs" />
+    <Compile Include="Actions\SetupMap.cs" />
+    <Compile Include="Actions\SetupTransactionEmail.cs" />
+    <Compile Include="Actions\StatisticalMaster.cs" />
+    <Compile Include="Actions\Statistical\AllPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\Statistical\ChangeActiveStatus.cs" />
+    <Compile Include="Actions\Statistical\CommonMethods.cs" />
+    <Compile Include="Actions\Statistical\DisplayGridReport.cs" />
+    <Compile Include="Actions\Statistical\DisplayGridReportRequestItem.cs" />
+    <Compile Include="Actions\Statistical\NotesChanged.cs" />
+    <Compile Include="Actions\Statistical\Option1Changed.cs" />
+    <Compile Include="Actions\Statistical\Option2Changed.cs" />
+    <Compile Include="Actions\Statistical\SaveChanges.cs" />
+    <Compile Include="Actions\Statistical\SetupPageEntries.cs" />
+    <Compile Include="Actions\Statistical\UpdateNote.cs" />
+    <Compile Include="Actions\StocklistMaster.cs" />
+    <Compile Include="Actions\Stocklist\AllPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\Stocklist\ChangeActiveStatus.cs" />
+    <Compile Include="Actions\Stocklist\CommonMethods.cs" />
+    <Compile Include="Actions\Stocklist\DisplayGridReport.cs" />
+    <Compile Include="Actions\Stocklist\DisplayGridReportRequestItem.cs" />
+    <Compile Include="Actions\Stocklist\NotesChanged.cs" />
+    <Compile Include="Actions\Stocklist\Option1Changed.cs" />
+    <Compile Include="Actions\Stocklist\Option2Changed.cs" />
+    <Compile Include="Actions\Stocklist\SaveChanges.cs" />
+    <Compile Include="Actions\Stocklist\SetupPageEntries.cs" />
+    <Compile Include="Actions\Stocklist\UpdateNote.cs" />
+    <Compile Include="Actions\StrataMaster.cs" />
+    <Compile Include="Actions\Strata\AllPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\Strata\ChangeActiveStatus.cs" />
+    <Compile Include="Actions\Strata\CommonMethods.cs" />
+    <Compile Include="Actions\Strata\DisplayGridReport.cs" />
+    <Compile Include="Actions\Strata\DisplayGridReportRequestItem.cs" />
+    <Compile Include="Actions\Strata\NotesChanged.cs" />
+    <Compile Include="Actions\Strata\Option1Changed.cs" />
+    <Compile Include="Actions\Strata\Option2Changed.cs" />
+    <Compile Include="Actions\Strata\SaveChanges.cs" />
+    <Compile Include="Actions\Strata\SetupPageEntries.cs" />
+    <Compile Include="Actions\Strata\UpdateNote.cs" />
+    <Compile Include="Actions\UpdateOCCertificateRequestItem.cs" />
+    <Compile Include="Actions\UpdateOCCertificateValues.cs" />
+    <Compile Include="Actions\VacateDlg\CommonMethods.cs" />
+    <Compile Include="Actions\VacateDlg\SaveChanges.cs" />
+    <Compile Include="Actions\VacateDlg\SaveChangesRequestItem.cs" />
+    <Compile Include="Actions\VacateDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\VacateMaster.cs" />
+    <Compile Include="Portfolio.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Actions\Column3ControlActions\AddHoldingLedger.cs" />
+    <Compile Include="Actions\Column3ControlActions\AddHoldingLedgerRequestItem.cs" />
+    <Compile Include="Actions\Management\DisplayGridLink.cs" />
+    <Compile Include="Actions\Management\DisplayGridLinkRequestItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions" />
+    <Folder Include="Actions\Management" />
+    <Folder Include="Actions\KeyNumber" />
+    <Folder Include="Actions\BankingDlg" />
+    <Folder Include="Actions\AgentNoDlg" />
+    <Folder Include="Actions\Creditor" />
+    <Folder Include="Actions\Column3ControlActions" />
+    <Folder Include="Actions\Insurance" />
+    <Folder Include="Actions\LotOwner" />
+    <Folder Include="Actions\Strata" />
+    <Folder Include="Actions\Stocklist" />
+    <Folder Include="Actions\Statistical" />
+    <Folder Include="Actions\VacateDlg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

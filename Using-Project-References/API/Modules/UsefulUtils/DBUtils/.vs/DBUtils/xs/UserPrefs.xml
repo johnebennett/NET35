@@ -1,0 +1,30 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Actions/CommonMethods.cs">
+    <Files>
+      <File FileName="DBUtils.cs" Line="121" Column="74" />
+      <File FileName="Actions/CommonMethods.cs" Line="113" Column="14" />
+      <File FileName="Actions/RunQuery.cs" Line="127" Column="48" />
+      <File FileName="../../../../HelperApps/EmailProcessor/Actions/CommonMethods.cs" Line="53" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DBUtils" expanded="True">
+            <Node name="DBUtils" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Actions" expanded="True">
+                <Node name="CommonMethods.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,85 @@
+{
+  "author": "John Bennett",
+  "fileName": "StatementRunItem",
+  "namespace": "Actions.PaymentOperations",
+  "className": "StatementRunItem",
+  "properties":
+    [
+        {"name": "Id", "validate": "Y", "dataType": "int"},
+        {"name": "RunId", "validate": "Y", "dataType": "int"},
+        {"name": "RunType", "validate": "Y", "dataType": "string"},
+        {"name": "RunDate", "validate": "Y", "dataType": "string"},
+        {"name": "CreatedBy", "validate": "N", "dataType": "string"},
+        {"name": "DirectEntryDiskCreated", "validate": "Y", "dataType": "string"},
+        {"name": "MultiDirectRun", "validate": "Y", "dataType": "string"},
+        {"name": "BPA", "validate": "Y", "dataType": "string"},
+        {"name": "PaymentEventId", "validate": "Y", "dataType": "int"},
+        {"name": "StatementPreview", "validate": "Y", "dataType": "string"},
+        {"name": "AccountType", "validate": "Y", "dataType": "int"},
+        {"name": "Amount", "validate": "Y", "dataType": "double"},
+        {"name": "Entries", "validate": "Y", "dataType": "int"},
+        {"name": "PaymentFileStatus", "validate": "N", "dataType": "string"},
+        {"name": "FromConversion", "validate": "Y", "dataType": "string"},
+        {"name": "EventRunCreated", "validate": "Y", "dataType": "string"},
+        {"name": "FileCreatedOn", "validate": "N", "dataType": "string"},
+        {"name": "FileCreatedBy", "validate": "N", "dataType": "string"},
+        {"name": "ShowPost", "validate": "N", "dataType": "string"},
+        {"name": "ShowReverse", "validate": "N", "dataType": "string"},
+        {"name": "ShowPresent", "validate": "N", "dataType": "string"},
+        {"name": "ShowChequeNumbers", "validate": "N", "dataType": "string"}
+    ],
+  "includes":
+  [
+    "System",
+    "System.Data",
+    "System.Collections.Generic",
+    "CommonUtilities",
+	"EAOfficeAPI"
+  ],
+  "methodStubs":
+    [
+      {"region": "Load for CompanyId and CloseAccountRunId",
+       "name": "Load",
+       "Parameters":["string ConnectionString,", "Int64 CompanyId,", "Int64 CloseAccountRunId"],
+       "content":
+       [
+          "public string Load(ActionBase AActionBase, string ConnectionString, Int64 CompanyId, Int64 CloseAccountRunId)",
+          "{",
+          "    string Result = \"\";",
+          "    string ClassName = this.GetType().ToString();",
+          "    string Method = ClassName + \".Load\";",
+          "",
+		  "    AActionBase.LogOnInsideMethod(Method);",
+		  "",
+          "    try",
+          "    {",
+          "        Clear();",
+          "",
+          "        StatementRunItem TempItem = new StatementRunItem();",
+		  "        Result =",
+		  "            CommonMethods.LoadStatementRunItem(ConnectionString, CompanyId, CloseAccountRunId, 0, ref TempItem);",
+		  "        if (!string.IsNullOrEmpty(Result))",
+		  "        {",
+          "            Result = AActionBase.LogOnProcessingError(Method, Result, \"\");",
+          "        }",
+		  "        else",
+		  "        {",
+          "            Result = Update(TempItem);",
+          "        }",
+          "    }",
+          "    catch (Exception Ex)",
+          "    {",
+          "        Result = AActionBase.LogOnException(ClassName + \".\" + Method, Ex, \"\");",
+          "        return Result;",
+          "    }",
+          "    finally",
+          "    {",
+          "        AActionBase.LogOnLeavingMethod(Method);",
+          "    }",
+          "",
+          "    return Result;",
+          "}"
+       ]
+       }
+    ]
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C1C3B7CA-7250-45EA-9FFF-57D2DA725CC4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AddContractsDlg</RootNamespace>
+    <AssemblyName>Portfolio.AddContractsDlg</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\CommonAPIReferences\</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\CommonAPIReferences\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="ActionBase">
+      <HintPath>..\..\..\..\CommonAPIReferences\ActionBase.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CommonUtilities">
+      <HintPath>..\..\..\..\CommonAPIReferences\CommonUtilities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\CommonReferences\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ProgressLogging">
+      <HintPath>..\..\..\..\CommonAPIReferences\ProgressLogging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RequestProcessor">
+      <HintPath>..\..\..\..\CommonAPIReferences\RequestProcessor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UsefulDBMethods">
+      <HintPath>..\..\..\..\CommonAPIReferences\UsefulDBMethods.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddContractsDlg.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Actions\CommonMethods.cs" />
+    <Compile Include="Actions\SetupPageEntries.cs" />
+    <Compile Include="Actions\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\Post.cs" />
+    <Compile Include="Actions\GetPortfolioTypeName.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

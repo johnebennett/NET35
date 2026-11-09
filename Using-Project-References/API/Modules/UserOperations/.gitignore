@@ -1,0 +1,8 @@
+*.dll
+*.pdb
+bin/*.dll
+bin/*.pdb
+bin/Debug/*.dll
+bin/Debug/*.pdb
+obj/Debug/
+.vs/

@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{D95965D5-E425-4673-B51A-6589B0962C2C}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Reconcilliation</RootNamespace>
+    <AssemblyName>Reconcilliation</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkProfile />
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <BaseAddress>4194304</BaseAddress>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActionBase">
+      <HintPath>..\..\..\CommonAPIReferences\ActionBase.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonUtilities">
+      <HintPath>..\..\..\CommonAPIReferences\CommonUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\CommonReferences\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ProgressLogging">
+      <HintPath>..\..\..\CommonAPIReferences\ProgressLogging.dll</HintPath>
+    </Reference>
+    <Reference Include="RequestProcessor">
+      <HintPath>..\..\..\CommonAPIReferences\RequestProcessor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+    </Reference>
+    <Reference Include="UsefulDBMethods">
+      <HintPath>..\..\..\CommonAPIReferences\UsefulDBMethods.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\BankAccountList.cs" />
+    <Compile Include="Actions\CommonMethods.cs" />
+    <Compile Include="Actions\GatherGridEntries\GatherGridEntries.cs" />
+    <Compile Include="Actions\GatherGridEntries\GatherGridEntriesRequestItem.cs" />
+    <Compile Include="Actions\GatherReconcileGridEntries\GatherReconcileGridEntries.cs" />
+    <Compile Include="Actions\GatherReconcileGridEntries\GatherReconcileGridEntriesRequestItem.cs" />
+    <Compile Include="Actions\GatherReportsGridEntries\GatherReportsGridEntries.cs" />
+    <Compile Include="Actions\GatherReportsGridEntries\GatherReportsGridEntriesRequestItem.cs" />
+    <Compile Include="Actions\GatherSystemReportsGridEntries\GatherSystemReportsGridEntries.cs" />
+    <Compile Include="Actions\GatherSystemReportsGridEntries\GatherSystemReportsGridEntriesRequestItem.cs" />
+    <Compile Include="Actions\GenerateBankStmtRpt\GenerateBankStmtRpt.cs" />
+    <Compile Include="Actions\GenerateBankStmtRpt\GenerateBankStmtRptRequestItem.cs" />
+    <Compile Include="Actions\GenerateReconcileRpt.cs" />
+    <Compile Include="Actions\GenerateReconcileRptRequestItem.cs" />
+    <Compile Include="Actions\GetReconcilliationReport\GetReconcilliationReport.cs" />
+    <Compile Include="Actions\GetReconcilliationReport\GetReconcilliationReportRequestItem.cs" />
+    <Compile Include="Actions\GetSystemReport\GetSystemReport.cs" />
+    <Compile Include="Actions\GetSystemReport\GetSystemReportRequestItem.cs" />
+    <Compile Include="Actions\PerformEOM\PerformEOM.cs" />
+    <Compile Include="Actions\PresentUnpresent\PresentUnpresent.cs" />
+    <Compile Include="Actions\PresentUnpresent\PresentUnpresentRequestItem.cs" />
+    <Compile Include="Actions\SavePageNumber\SavePageNumber.cs" />
+    <Compile Include="Actions\SavePageNumber\SavePageNumberRequestItem.cs" />
+    <Compile Include="Actions\UpdateBankAccountItem.cs" />
+    <Compile Include="Reconcilliation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions" />
+    <Folder Include="Actions\GatherGridEntries" />
+    <Folder Include="Actions\GatherReportsGridEntries" />
+    <Folder Include="Actions\GetReconcilliationReport" />
+    <Folder Include="Actions\GatherReconcileGridEntries" />
+    <Folder Include="Actions\GatherSystemReportsGridEntries" />
+    <Folder Include="Actions\GetSystemReport" />
+    <Folder Include="Actions\GenerateBankStmtRpt" />
+    <Folder Include="Actions\PresentUnpresent" />
+    <Folder Include="Actions\SavePageNumber" />
+    <Folder Include="Actions\PerformEOM" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\..\..\CommonAPIReferences</OutputPath>
+    <PlatformTarget>anycpu</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\..\CommonAPIReferences</OutputPath>
+  </PropertyGroup>
+</Project>

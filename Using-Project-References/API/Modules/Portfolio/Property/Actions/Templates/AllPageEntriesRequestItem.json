@@ -1,0 +1,135 @@
+{
+  "author": "John Bennett",
+  "fileName": "AllPageEntriesRequestItem",
+  "namespace": "Actions.Portfolio.Property",
+  "className": "AllPageEntriesRequestItem",
+  "properties":
+    [
+        {"name": "IsAdd", "validate": "Y", "dataType": "string"},
+        {"name": "MgmtId", "validate": "Y", "dataType": "int"},
+        {"name": "NotesId", "validate": "Y", "dataType": "int"},
+
+        {"name": "BldgName", "validate": "N", "dataType": "string"},
+        {"name": "SmokeAlarm", "validate": "Y", "dataType": "string"},
+        {"name": "SmokeAlarmDate", "validate": "Y", "dataType": "string"},
+        {"name": "Bedrooms", "validate": "Y", "dataType": "int"},
+
+        {"name": "LevelNo", "validate": "N", "dataType": "string"},
+        {"name": "LevelExtra", "validate": "N", "dataType": "string"},
+        {"name": "Heater", "validate": "Y", "dataType": "string"},
+        {"name": "HeaterDate", "validate": "Y", "dataType": "string"},
+        {"name": "Bathrooms", "validate": "Y", "dataType": "int"},
+
+        {"name": "UnitNo", "validate": "N", "dataType": "string"},
+        {"name": "UnitExtra", "validate": "N", "dataType": "string"},
+        {"name": "AirCon", "validate": "Y", "dataType": "string"},
+        {"name": "AirconServiceDate", "validate": "Y", "dataType": "string"},
+
+        {"name": "StreetNo", "validate": "N", "dataType": "string"},
+        {"name": "StreetNoExtra", "validate": "N", "dataType": "string"},
+        {"name": "PoolCert", "validate": "Y", "dataType": "string"},
+        {"name": "PoolCertDate", "validate": "Y", "dataType": "string"},
+        {"name": "CarSpaces", "validate": "Y", "dataType": "int"},
+
+        {"name": "StreetPOBox", "validate": "N", "dataType": "string"},
+        {"name": "FireService", "validate": "Y", "dataType": "string"},
+        {"name": "FireServiceDate", "validate": "Y", "dataType": "string"},
+        {"name": "Garage", "validate": "Y", "dataType": "int"},
+
+        {"name": "Suburb", "validate": "N", "dataType": "string"},
+        {"name": "Gas", "validate": "Y", "dataType": "string"},
+        {"name": "GasDate", "validate": "Y", "dataType": "string"},
+        {"name": "CarPort", "validate": "Y", "dataType": "int"},
+
+        {"name": "State", "validate": "N", "dataType": "string"},
+        {"name": "Electrical", "validate": "Y", "dataType": "string"},
+        {"name": "ElectricalDate", "validate": "Y", "dataType": "string"},
+
+        {"name": "PostCode", "validate": "N", "dataType": "string"},
+        {"name": "Flue", "validate": "Y", "dataType": "string"},
+        {"name": "FlueDate", "validate": "Y", "dataType": "string"},
+        {"name": "BldgArea", "validate": "Y", "dataType": "double"},
+
+        {"name": "Grease", "validate": "Y", "dataType": "string"},
+        {"name": "GreaseDate", "validate": "Y", "dataType": "string"},
+        {"name": "LandArea", "validate": "Y", "dataType": "double"},
+        {"name": "AuthorityDate", "validate": "Y", "dataType": "string"},
+
+        {"name": "HotPlate", "validate": "Y", "dataType": "string"},
+
+        {"name": "PropertyType", "validate": "Y", "dataType": "int"},
+
+        {"name": "NoteText", "validate": "N", "dataType": "string"},
+
+        {"name": "OwnerToAttendInspection", "validate": "Y", "dataType": "string"},
+
+        {"name": "Council", "validate": "N", "dataType": "string"},
+        {"name": "SearchKey", "validate": "N", "dataType": "string"},
+        {"name": "SmokeComment", "validate": "N", "dataType": "string"}
+    ],
+  "includes":
+  [
+    "System",
+    "System.Data",
+    "System.Collections.Generic",
+    "CommonUtilities",
+    "EAOfficeAPI",
+    "Newtonsoft.Json.Linq"
+  ],
+  "methodStubs":
+    [
+      {"region": "Load from DataObject",
+       "comment":
+       [
+         //{"name": "Asbestos", "validate": "Y", "dataType": "string"},
+         //{"name": "AsbestosDate", "validate": "Y", "dataType": "string"},
+         //{"name": "Insurance", "validate": "Y", "dataType": "string"},
+         //{"name": "InsuranceDate", "validate": "Y", "dataType": "string"},
+         // legislation changes
+         // Asbestos = Gas
+         // Insurance = Electrical
+       ], 
+       "content":
+       [
+				"//public string Load(ActionBase ActionBase, JObject DataObject)",        
+				"public string Load(ActionBase ActionBase)",
+			"{",
+				"    string Result = \"\";",
+				"    string ClassName = this.GetType().ToString();",
+				"    //string Method = ClassName + \".LoadFromDataObject\";",
+				"    string Method = ClassName + \".LoadFromActionBase\";",
+					"",
+				"    ActionBase.LogOnInsideMethod(Method);",
+				"",
+				"    try",
+				"    {",
+				"        Clear();",
+				"",
+				"        __ClassName__ TempItem = new __ClassName__();",
+				"        //Result = CommonMethods.Load__ClassName__(DataObject, ref TempItem);",
+				"        Result = CommonMethods.Load__ClassName__(ActionBase, ref TempItem);",
+				"        if (!string.IsNullOrEmpty(Result))",
+				"        {",
+				"            Result = ActionBase.LogOnProcessingError(Method, Result, \"\");",
+				"        }",
+				"        else",
+				"        {",
+				"            Result = Update(TempItem);",
+				"        }",
+				"    }",
+				"    catch (Exception Ex)",
+				"    {",
+				"        Result = ActionBase.LogOnException(Method, Ex, \"\");",
+				"        return Result;",
+				"    }",
+				"    finally",
+				"    {",
+				"        ActionBase.LogOnLeavingMethod(Method);",
+				"    }",
+				"",
+				"    return Result;",
+				"}"
+       ]
+       }
+    ]
+}

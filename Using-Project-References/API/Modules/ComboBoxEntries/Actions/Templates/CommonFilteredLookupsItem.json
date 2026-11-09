@@ -1,0 +1,64 @@
+{
+  "author": "John Bennett",
+  "fileName": "CommonFilteredLookupsItem",
+  "namespace": "Actions.ComboBoxEntries",
+  "className": "CommonFilteredLookupsItem",
+  "properties":
+    [
+        {"name": "PortfolioId", "validate": "Y", "dataType": "int"},
+        {"name": "CategoryOnlyId", "validate": "Y", "dataType": "int"},
+        {"name": "DlgType", "validate": "Y", "dataType": "string"}
+    ],
+  "includes":
+  [
+    "System",
+    "System.Data",
+    "System.Collections.Generic",
+    "CommonUtilities",
+    "EAOfficeAPI",
+    "Newtonsoft.Json.Linq"
+  ],
+  "methodStubs":
+    [
+      {"region": "Load from DataObject",
+       "content":
+       [
+          "public string Load(ActionBase AActionBase, JObject DataObject)",
+          "{",
+          "    string Result = \"\";",
+          "    string ClassName = this.GetType().ToString();",
+          "    string Method = ClassName + \".LoadFromDataObject\";",
+          "",
+          "    AActionBase.LogOnInsideMethod(Method);",
+          "",
+          "    try",
+          "    {",
+          "        Clear();",
+          "",
+          "        __ClassName__ TempItem = new __ClassName__();",
+          "        Result = CommonMethods.Load__ClassName__(DataObject, ref TempItem);",
+          "        if (!string.IsNullOrEmpty(Result))",
+          "        {",
+          "            Result = AActionBase.LogOnProcessingError(Method, Result, \"\");",
+          "        }",
+          "        else",
+          "        {",
+          "            Result = Update(TempItem);",
+          "        }",
+          "    }",
+          "    catch (Exception Ex)",
+          "    {",
+          "        Result = AActionBase.LogOnException(Method, Ex, \"\");",
+          "        return Result;",
+          "    }",
+          "    finally",
+          "    {",
+          "        AActionBase.LogOnLeavingMethod(Method);",
+          "    }",
+          "",
+          "    return Result;",
+          "}"
+       ]
+       }
+    ]
+}

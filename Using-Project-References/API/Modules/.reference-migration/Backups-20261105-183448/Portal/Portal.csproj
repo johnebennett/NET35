@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{944B37C9-861A-48A0-AF1C-C3C19DF077C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Portal</RootNamespace>
+    <AssemblyName>Portal</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\CommonAPIReferences</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\CommonAPIReferences</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="ActionBase">
+      <HintPath>..\..\..\CommonAPIReferences\ActionBase.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CommonUtilities">
+      <HintPath>..\..\..\CommonAPIReferences\CommonUtilities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\CommonAPIReferences\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RequestProcessor">
+      <HintPath>..\..\..\CommonAPIReferences\RequestProcessor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="UsefulDBMethods">
+      <HintPath>..\..\..\CommonAPIReferences\UsefulDBMethods.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ProgressLogging">
+      <HintPath>..\..\..\CommonAPIReferences\ProgressLogging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BCrypt.Net-Next">
+      <HintPath>..\..\..\CommonAPIReferences\BCrypt.Net-Next.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Otp.NET">
+      <HintPath>..\..\..\CommonAPIReferences\Otp.NET.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\GetCompanyLogo.cs" />
+    <Compile Include="Actions\GetCompanyLogoRequestItem.cs" />
+    <Compile Include="Portal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Actions\CommonMethods.cs" />
+    <Compile Include="Actions\ValidateUser.cs" />
+    <Compile Include="Actions\ValidateUserRequestItem.cs" />
+    <Compile Include="Actions\SetupPageEntries.cs" />
+    <Compile Include="Actions\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\DisplayGridReport.cs" />
+    <Compile Include="Actions\DisplayGridReportRequestItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

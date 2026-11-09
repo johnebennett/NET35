@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{D1A2BC0E-B74B-45F3-A1C3-8860FF77F0C2}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Receipts</RootNamespace>
+    <AssemblyName>Receipts</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkProfile />
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <SignAssembly>False</SignAssembly>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <BaseAddress>4194304</BaseAddress>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\..\..\CommonAPIReferences</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\..\CommonAPIReferences</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActionBase">
+      <HintPath>..\..\..\CommonAPIReferences\ActionBase.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ComboBoxEntries">
+      <HintPath>..\..\..\CommonAPIReferences\ComboBoxEntries.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CommonUtilities">
+      <HintPath>..\..\..\CommonAPIReferences\CommonUtilities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\CommonReferences\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ProgressLogging">
+      <HintPath>..\..\..\CommonAPIReferences\ProgressLogging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RequestProcessor">
+      <HintPath>..\..\..\CommonAPIReferences\RequestProcessor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+    </Reference>
+    <Reference Include="UsefulDBMethods">
+      <HintPath>..\..\..\CommonAPIReferences\UsefulDBMethods.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\AddCashChqReceiptMaster.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\CancelReceipt.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\ChangeIncludeStatus.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\ChangeIncludeStatusRequestItem.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\CommonMethods.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\DisplayDebts.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\PayAll.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\Regenerate.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\RevenueCodeChange.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\SaveReceipt.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\SetupPageEntries.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\StartAgain.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\SubLedgerChange.cs" />
+    <Compile Include="Actions\AddCashChqReceipt\ValidateReceipt.cs" />
+    <Compile Include="Actions\AddDirectReceiptMaster.cs" />
+    <Compile Include="Actions\AddDirectReceipt\CancelReceipt.cs" />
+    <Compile Include="Actions\AddDirectReceipt\ChangeIncludeStatus.cs" />
+    <Compile Include="Actions\AddDirectReceipt\ChangeIncludeStatusRequestItem.cs" />
+    <Compile Include="Actions\AddDirectReceipt\CommonMethods.cs" />
+    <Compile Include="Actions\AddDirectReceipt\DisplayDebts.cs" />
+    <Compile Include="Actions\AddDirectReceipt\PayAll.cs" />
+    <Compile Include="Actions\AddDirectReceipt\Regenerate.cs" />
+    <Compile Include="Actions\AddDirectReceipt\RevenueCodeChange.cs" />
+    <Compile Include="Actions\AddDirectReceipt\SaveReceipt.cs" />
+    <Compile Include="Actions\AddDirectReceipt\SetupPageEntries.cs" />
+    <Compile Include="Actions\AddDirectReceipt\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\AddDirectReceipt\StartAgain.cs" />
+    <Compile Include="Actions\AddDirectReceipt\SubLedgerChange.cs" />
+    <Compile Include="Actions\AddDirectReceipt\ValidateReceipt.cs" />
+    <Compile Include="Actions\CheckOKToReceipt.cs" />
+    <Compile Include="Actions\CheckOKToReceiptRequestItem.cs" />
+    <Compile Include="Actions\CommonMethods.cs" />
+    <Compile Include="Actions\CreateOptionsMaster.cs" />
+    <Compile Include="Actions\CreateOptions\AddBanking.cs" />
+    <Compile Include="Actions\CreateOptions\AddBankingRequestItem.cs" />
+    <Compile Include="Actions\CreateOptions\CreateBankingDlg.cs" />
+    <Compile Include="Actions\CreateOptions\CreateBankingDlgRequestItem.cs" />
+    <Compile Include="Actions\CreateOptions\CreateDirectDebitList.cs" />
+    <Compile Include="Actions\CreateOptions\CreateDirectDebitListRequestItem.cs" />
+    <Compile Include="Actions\CreateOptions\DirectDebitList_ChangeDebitType.cs" />
+    <Compile Include="Actions\CreateOptions\DirectDebitList_DoOnApply.cs" />
+    <Compile Include="Actions\CreateOptions\DirectDebitList_DoOnCancel.cs" />
+    <Compile Include="Actions\CreateOptions\ImportBankingFile.cs" />
+    <Compile Include="Actions\CreateOptions\ImportBankingFileDlg.cs" />
+    <Compile Include="Actions\CreateOptions\ImportBankingFileDlgRequestItem.cs" />
+    <Compile Include="Actions\CreateOptions\ImportBankingFileRequestItem.cs" />
+    <Compile Include="Actions\CreateOptions\ValidateImportFile.cs" />
+    <Compile Include="Actions\DisplayPastEventsReport.cs" />
+    <Compile Include="Actions\EventProcessOptionsMaster.cs" />
+    <Compile Include="Actions\EventProcessOptions\CreateDirectDebitFile.cs" />
+    <Compile Include="Actions\EventProcessOptions\EventProcessOptions_OnChange.cs" />
+    <Compile Include="Actions\EventProcessOptions\EventProcessOptions_OnChangeRequestItem.cs" />
+    <Compile Include="Actions\EventProcessOptions\ReceiptOptionsPost.cs" />
+    <Compile Include="Actions\EventProcessOptions\RemoveReceiptOptionsAction.cs" />
+    <Compile Include="Actions\GatherReceipts.cs" />
+    <Compile Include="Actions\GatherReceiptsRequestItem.cs" />
+    <Compile Include="Actions\ReceiptScreenChargePopup.cs" />
+    <Compile Include="Actions\ReceiptScreenChargePopupRequestItem.cs" />
+    <Compile Include="Actions\ScreenChargePopupEditPayingAmount.cs" />
+    <Compile Include="Actions\SetupFindDialog.cs" />
+    <Compile Include="Actions\SetupFindDialogRequestItem.cs" />
+    <Compile Include="Receipts.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Actions\DisplayGridReportRequestItem.cs" />
+    <Compile Include="Actions\DisplayGridReport.cs" />
+    <Compile Include="Actions\ProcessEmail.cs" />
+    <Compile Include="Actions\RemoveGridEntry.cs" />
+    <Compile Include="Actions\DeleteGridEntryRequestItem.cs" />
+    <Compile Include="Actions\AddDirectReceipt\DisplayReceiptMessage.cs" />
+    <Compile Include="Actions\CreateOptions\DirectDebitList_ChangeBankAccount.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions" />
+    <Folder Include="Actions\CreateOptions" />
+    <Folder Include="Actions\EventProcessOptions" />
+    <Folder Include="Actions\AddDirectReceipt" />
+    <Folder Include="Actions\AddCashChqReceipt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

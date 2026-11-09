@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{80798F1B-BCC5-46C4-8575-C51F7C9F9FCF}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FindDialogs</RootNamespace>
+    <AssemblyName>FindDialogs</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActionBase">
+      <HintPath>..\..\..\CommonAPIReferences\ActionBase.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonUtilities">
+      <HintPath>..\..\..\CommonAPIReferences\CommonUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\CommonReferences\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ProgressLogging">
+      <HintPath>..\..\..\CommonAPIReferences\ProgressLogging.dll</HintPath>
+    </Reference>
+    <Reference Include="RequestProcessor">
+      <HintPath>..\..\..\CommonReferences\RequestProcessor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UsefulDBMethods">
+      <HintPath>..\..\..\CommonAPIReferences\UsefulDBMethods.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\CommonMethods.cs" />
+    <Compile Include="Actions\FindClientDialog\CommonMethods.cs" />
+    <Compile Include="Actions\FindClientDialog\SetupPageEntries.cs" />
+    <Compile Include="Actions\FindClientDialog\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\FindScreenDialog\CommonMethods.cs" />
+    <Compile Include="Actions\FindScreenDialog\SetupPageEntries.cs" />
+    <Compile Include="Actions\FindScreenDialog\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="FindDialogs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions" />
+    <Folder Include="Actions\FindClientDialog" />
+    <Folder Include="Actions\FindScreenDialog" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy FindDialogs.dll ..\..\..\..\..\CommonAPIReferences\</PostBuildEvent>
+  </PropertyGroup>
+</Project>

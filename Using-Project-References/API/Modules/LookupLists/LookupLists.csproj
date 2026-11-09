@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{4119A4F4-2C8B-4C60-8EF9-59115B36B291}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>LookupLists</RootNamespace>
+    <AssemblyName>LookupLists</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CoreAssemblies\ActionBase\ActionBase.csproj">
+      <Project>{294D6321-28CE-4397-BBF0-A4683EFEBF8D}</Project>
+      <Name>ActionBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CoreAssemblies\CommonUtilities\CommonUtilities.csproj">
+      <Project>{37E6C7D0-D8C9-44D0-B428-3A2D88AC9B1B}</Project>
+      <Name>CommonUtilities</Name>
+    </ProjectReference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <ProjectReference Include="..\..\CoreAssemblies\ProgressLogging\ProgressLogging.csproj">
+      <Project>{A2A4B25E-10A9-47F2-B63C-917BA35153BE}</Project>
+      <Name>ProgressLogging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CoreAssemblies\RequestProcessor\RequestProcessor.csproj">
+      <Project>{9225BF9B-950C-4A87-96DC-7FE6AA3A5F92}</Project>
+      <Name>RequestProcessor</Name>
+    </ProjectReference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <ProjectReference Include="..\..\CoreAssemblies\UsefulDBMethods\UsefulDBMethods.csproj">
+      <Project>{2AEA18AB-B0EC-4D05-AD7F-42C4FC2AAB04}</Project>
+      <Name>UsefulDBMethods</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\CommonMethods.cs" />
+    <Compile Include="Actions\DialogLookup.cs" />
+    <Compile Include="Actions\LedgerLookup.cs" />
+    <Compile Include="Actions\LogsLookup.cs" />
+    <Compile Include="Actions\TransactionLookup.cs" />
+    <Compile Include="Actions\TransactionLookupRequestItem.cs" />
+    <Compile Include="LookupLists.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy LookupLists.dll "$(ProjectDir)..\..\..\RunTime\"</PostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

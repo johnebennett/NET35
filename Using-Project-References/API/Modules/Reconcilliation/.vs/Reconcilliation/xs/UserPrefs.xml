@@ -1,0 +1,44 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Actions/GetSystemReport/GetSystemReport.cs">
+    <Files>
+      <File FileName="Reconcilliation.cs" Line="149" Column="75" />
+      <File FileName="Actions/UpdateBankAccountItem.cs" Line="86" Column="29" />
+      <File FileName="Actions/GetSystemReport/GetSystemReport.cs" Line="235" Column="66" />
+      <File FileName="../ToDo/Job/Actions/CommonMethods.cs" Line="1276" Column="21" />
+      <File FileName="Actions/BankAccountList.cs" Line="1" Column="1" />
+      <File FileName="Actions/GenerateBankStmtRpt/GenerateBankStmtRpt.cs" Line="154" Column="1" />
+      <File FileName="Actions/GetReconcilliationReport/GetReconcilliationReport.cs" Line="186" Column="29" />
+      <File FileName="Actions/CommonMethods.cs" Line="532" Column="24" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Reconcilliation" expanded="True">
+            <Node name="Reconcilliation" expanded="True">
+              <Node name="Actions" expanded="True">
+                <Node name="GatherGridEntries" expanded="True" />
+                <Node name="GatherReconcileGridEntries" expanded="True" />
+                <Node name="GatherReportsGridEntries" expanded="True" />
+                <Node name="GatherSystemReportsGridEntries" expanded="True" />
+                <Node name="GenerateBankStmtRpt" expanded="True" />
+                <Node name="GetReconcilliationReport" expanded="True" />
+                <Node name="GetSystemReport" expanded="True">
+                  <Node name="GetSystemReport.cs" selected="True" />
+                </Node>
+                <Node name="PerformEOM" expanded="True" />
+                <Node name="PresentUnpresent" expanded="True" />
+                <Node name="SavePageNumber" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,69 @@
+{
+  "author": "John Bennett",
+  "fileName": "GatherReconcileGridEntriesRequestItem",
+  "namespace": "Actions.Reconcilliation.GatherReconcileGridEntries",
+  "className": "GatherReconcileGridEntriesRequestItem",
+  "properties":
+    [
+        {"name": "BankId", "validate": "Y", "dataType": "int"},
+        {"name": "BankType", "validate": "Y", "dataType": "int"},
+        {"name": "PageNo", "validate": "Y", "dataType": "int"},
+        {"name": "PresentedPageNo", "validate": "Y", "dataType": "int"}
+    ],
+  "includes":
+  [
+    "System",
+    "System.Data",
+    "System.Collections.Generic",
+    "CommonUtilities",
+	"EAOfficeAPI"
+  ],
+  "methodStubs":
+    [
+      {
+			"region": "Load from DataObject",
+			"name": "Load",
+			"content":
+			[
+				"//public string Load(ActionBase AActionBase, JObject DataObject)",
+				"public string Load(ActionBase AActionBase)",
+			"{",
+				"    string Result = \"\";",
+				"    string ClassName = this.GetType().ToString();",
+				"    //string Method = ClassName + \".LoadFromDataObject\";",
+				"    string Method = ClassName + \".LoadFromActionBase\";",
+				"",
+				"    AActionBase.LogOnInsideMethod(Method);",
+				"",
+				"    try",
+				"    {",
+				"        Clear();",
+				"",
+				"        __ClassName__ TempItem = new __ClassName__();",
+				"        //Result = CommonMethods.Load__ClassName__(DataObject, ref TempItem);",
+				"        Result = CommonMethods.Load__ClassName__(AActionBase, ref TempItem);",
+				"        if (!string.IsNullOrEmpty(Result))",
+				"        {",
+				"            Result = AActionBase.LogOnProcessingError(Method, Result, \"\");",
+				"        }",
+				"        else",
+				"        {",
+				"            Result = Update(TempItem);",
+				"        }",
+				"    }",
+				"    catch (Exception Ex)",
+				"    {",
+				"        Result = AActionBase.LogOnException(Method, Ex, \"\");",
+				"        return Result;",
+				"    }",
+				"    finally",
+				"    {",
+				"        AActionBase.LogOnLeavingMethod(Method);",
+				"    }",
+				"",
+				"    return Result;",
+				"}"
+			]
+       }
+    ]
+}

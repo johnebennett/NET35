@@ -1,0 +1,16 @@
+{
+"common":{
+"plugin": "PortfolioAddButton",
+"version": "",
+"userName": "SomeValue",
+"password": "SomeValue",
+"companyId": "1050",
+"clientId": "35530",
+"controller": "",
+"Action": "SubLedgerDlg",
+"debug": ""
+}
+,"data":{
+"PortfolioId": "36911","Option1Id": "15","Option2Id": "0","GridId": "0","Category": "SetupPageEntries"
+}
+}

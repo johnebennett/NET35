@@ -1,0 +1,249 @@
+/*
+ * Created by Make Item Classes.
+ * Author: John Bennett
+ * Date: 29-08-2020
+ * Time: 11:41 AM
+
+ * SourceFile: /home/john/Source/EAOffice/EAOfficeAPI/Modules/ToDo/Task/Actions/Templates/SetupPageEntriesRequestItem.json
+*/
+using System;
+using System.Data;
+using System.Collections.Generic;
+using CommonUtilities;
+using EAOfficeAPI;
+using Newtonsoft.Json.Linq;
+
+namespace Actions.ToDo.Task
+{
+    public class SetupPageEntriesRequestItem
+    {
+        #region Properties - Getters and Setters
+        private string FPortfolioIdValue = "";
+        public bool PortfolioIdIsValid = false;
+        public int PortfolioId { get; set; }
+        public string PortfolioIdValue
+        {
+            get { return FPortfolioIdValue; }
+            set
+            {
+                FPortfolioIdValue = value;
+                int Dummy = 0;
+                PortfolioIdIsValid = int.TryParse(FPortfolioIdValue, out Dummy);
+                PortfolioId = (PortfolioIdIsValid) ? Dummy : 0;
+            }
+        }
+        
+        private string FTaskIdValue = "";
+        public bool TaskIdIsValid = false;
+        public int TaskId { get; set; }
+        public string TaskIdValue
+        {
+            get { return FTaskIdValue; }
+            set
+            {
+                FTaskIdValue = value;
+                int Dummy = 0;
+                TaskIdIsValid = int.TryParse(FTaskIdValue, out Dummy);
+                TaskId = (TaskIdIsValid) ? Dummy : 0;
+            }
+        }
+        
+        private string FTaskTypeValue = "";
+        public bool TaskTypeIsValid = false;
+        public int TaskType { get; set; }
+        public string TaskTypeValue
+        {
+            get { return FTaskTypeValue; }
+            set
+            {
+                FTaskTypeValue = value;
+                int Dummy = 0;
+                TaskTypeIsValid = int.TryParse(FTaskTypeValue, out Dummy);
+                TaskType = (TaskTypeIsValid) ? Dummy : 0;
+            }
+        }
+        
+        private string FServiceIdValue = "";
+        public bool ServiceIdIsValid = false;
+        public int ServiceId { get; set; }
+        public string ServiceIdValue
+        {
+            get { return FServiceIdValue; }
+            set
+            {
+                FServiceIdValue = value;
+                int Dummy = 0;
+                ServiceIdIsValid = int.TryParse(FServiceIdValue, out Dummy);
+                ServiceId = (ServiceIdIsValid) ? Dummy : 0;
+            }
+        }
+        
+        private string FNotesIdValue = "";
+        public bool NotesIdIsValid = false;
+        public int NotesId { get; set; }
+        public string NotesIdValue
+        {
+            get { return FNotesIdValue; }
+            set
+            {
+                FNotesIdValue = value;
+                int Dummy = 0;
+                NotesIdIsValid = int.TryParse(FNotesIdValue, out Dummy);
+                NotesId = (NotesIdIsValid) ? Dummy : 0;
+            }
+        }
+        
+        private string FOptionIdValue = "";
+        public bool OptionIdIsValid = false;
+        public int OptionId { get; set; }
+        public string OptionIdValue
+        {
+            get { return FOptionIdValue; }
+            set
+            {
+                FOptionIdValue = value;
+                int Dummy = 0;
+                OptionIdIsValid = int.TryParse(FOptionIdValue, out Dummy);
+                OptionId = (OptionIdIsValid) ? Dummy : 0;
+            }
+        }
+        
+        #endregion
+        
+        #region Clear
+        public void Clear()
+        {
+            PortfolioIdValue = "";
+            TaskIdValue = "";
+            TaskTypeValue = "";
+            ServiceIdValue = "";
+            NotesIdValue = "";
+            OptionIdValue = "";
+        }
+        #endregion
+        
+        #region Validate
+        public string Validate()
+        {
+            string Result = "";
+            try
+            {
+                string BaseFormat = "{0} is {1}";
+                string NotProvided = "Not Provided";
+                string Invalid = "Invalid";
+                string Key = "";
+                
+                if (string.IsNullOrEmpty(Result))
+                {
+                    Key = "PortfolioId";
+                    if (!PortfolioIdIsValid) Result = string.Format(BaseFormat, Key, NotProvided + " or " + Invalid);
+                }
+                
+                if (string.IsNullOrEmpty(Result))
+                {
+                    Key = "TaskId";
+                    if (!TaskIdIsValid) Result = string.Format(BaseFormat, Key, NotProvided + " or " + Invalid);
+                }
+                
+                if (string.IsNullOrEmpty(Result))
+                {
+                    Key = "TaskType";
+                    if (!TaskTypeIsValid) Result = string.Format(BaseFormat, Key, NotProvided + " or " + Invalid);
+                }
+                
+                if (string.IsNullOrEmpty(Result))
+                {
+                    Key = "ServiceId";
+                    if (!ServiceIdIsValid) Result = string.Format(BaseFormat, Key, NotProvided + " or " + Invalid);
+                }
+                
+                if (string.IsNullOrEmpty(Result))
+                {
+                    Key = "NotesId";
+                    if (!NotesIdIsValid) Result = string.Format(BaseFormat, Key, NotProvided + " or " + Invalid);
+                }
+                
+                if (string.IsNullOrEmpty(Result))
+                {
+                    Key = "OptionId";
+                    if (!OptionIdIsValid) Result = string.Format(BaseFormat, Key, NotProvided + " or " + Invalid);
+                }
+                
+            }
+            catch (Exception Ex)
+            {
+                Result =
+                    Ex.Message + Environment.NewLine +
+                    Ex.InnerException;
+                }
+            
+            return Result;
+        }
+        #endregion
+        
+        #region Update
+        public string Update(SetupPageEntriesRequestItem Source)
+        {
+            string Result = "";
+            
+            try
+            {
+                this.PortfolioIdValue = Source.PortfolioIdValue;
+                this.TaskIdValue = Source.TaskIdValue;
+                this.TaskTypeValue = Source.TaskTypeValue;
+                this.ServiceIdValue = Source.ServiceIdValue;
+                this.NotesIdValue = Source.NotesIdValue;
+                this.OptionIdValue = Source.OptionIdValue;
+            }
+            catch (Exception Ex)
+            {
+                Result = Ex.Message + Environment.NewLine + Ex.InnerException;
+            }
+            
+            return Result;
+        }
+        #endregion
+        
+        #region Load from DataObject
+        //public string Load(ActionBase ActionBase, JObject DataObject)
+        public string Load(ActionBase ActionBase)
+            {
+                string Result = "";
+                string ClassName = this.GetType().ToString();
+                //string Method = ClassName + ".LoadFromDataObject";
+                string Method = ClassName + ".LoadFromActionBase";
+            
+                ActionBase.LogOnInsideMethod(Method);
+            
+                try
+                {
+                    Clear();
+            
+                    SetupPageEntriesRequestItem TempItem = new SetupPageEntriesRequestItem();
+                    //Result = CommonMethods.LoadSetupPageEntriesRequestItem(DataObject, ref TempItem);
+                    Result = CommonMethods.LoadSetupPageEntriesRequestItem(ActionBase, ref TempItem);
+                    if (!string.IsNullOrEmpty(Result))
+                    {
+                        Result = ActionBase.LogOnProcessingError(Method, Result, "");
+                    }
+                    else
+                    {
+                        Result = Update(TempItem);
+                    }
+                }
+                catch (Exception Ex)
+                {
+                    Result = ActionBase.LogOnException(Method, Ex, "");
+                    return Result;
+                }
+                finally
+                {
+                    ActionBase.LogOnLeavingMethod(Method);
+                }
+            
+                return Result;
+        }
+        #endregion
+        
+    }
+}

@@ -1,0 +1,83 @@
+{
+  "author": "John Bennett",
+  "fileName": "SearchGridRequestItem",
+  "namespace": "Actions.PaymentOperations",
+  "className": "SearchGridRequestItem",
+  "properties":
+    [
+        {"name": "OfficeId", "validate": "Y", "dataType": "int"},
+        {"name": "ManagerId", "validate": "Y", "dataType": "int"},
+        {"name": "LedgerTypeId", "validate": "Y", "dataType": "int"},
+        {"name": "LedgerId", "validate": "Y", "dataType": "int"},
+        {"name": "BankNameId", "validate": "Y", "dataType": "int"},
+        {"name": "PaymentTypeId", "validate": "Y", "dataType": "int"},
+        {"name": "DisplayType", "validate": "Y", "dataType": "int"},
+        {"name": "StatementRunId", "validate": "Y", "dataType": "int"},
+        {"name": "DateRangeId", "validate": "Y", "dataType": "int"}
+    ],
+  "includes":
+  [
+    "System",
+    "System.Text",
+    "System.Data",
+    "System.Collections.Generic",
+    "Newtonsoft.Json",
+    "Newtonsoft.Json.Linq",
+    "CommonUtilities",
+    "EAOfficeAPI",
+    "CommonDBMethods"
+  ],
+  "methodStubs":
+    [
+      {"region": "Bogus ENtry",
+       "content":
+       [
+          "public string BogusMethod(string ConnectionString, Int64 CompanyId, Int64 ClientId)",
+          "{ return \"\";",
+          "}"
+       ]
+      },
+      {"region": "Load for CompanyId and ClientId",
+       "name": "Load",
+       "Parameters":["string ConnectionString,", "Int64 CompanyId,", "Int64 ClientId"],
+       "content":
+       [
+        "public string Load(ActionBase AActionBase, JObject DataObject)",
+        "{",
+        "    string Result = \"\";",
+        "    string ClassName = this.GetType().ToString();",
+        "    string Method = ClassName + \".LoadFromDataObject\";",
+        "",
+        "    AActionBase.LogOnInsideMethod(Method);",
+        "",
+        "    try",
+        "    {",
+        "        Clear();",
+        "",
+        "        __ClassName__ TempItem = new __ClassName__();",
+        "        Result = CommonMethods.Load__ClassName__(DataObject, ref TempItem);",
+        "        if (!string.IsNullOrEmpty(Result))",
+        "        {",
+        "            Result = AActionBase.LogOnProcessingError(Method, Result, \"\");",
+        "        }",
+        "        else",
+        "        {",
+        "            Result = Update(TempItem);",
+        "        }",
+        "    }",
+        "    catch (Exception Ex)",
+        "    {",
+        "        Result = AActionBase.LogOnException(Method, Ex, \"\");",
+        "        return Result;",
+        "    }",
+        "    finally",
+        "    {",
+        "        AActionBase.LogOnLeavingMethod(Method);",
+        "    }",
+        "",
+        "    return Result;",
+        "}"
+     ]
+       }
+    ]
+}

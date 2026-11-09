@@ -1,0 +1,34 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Actions/DisplayGridReportRequestItem.cs">
+    <Files>
+      <File FileName="Help.cs" Line="127" Column="57" />
+      <File FileName="Actions/CommonMethods.cs" Line="448" Column="48" />
+      <File FileName="Actions/SetupPageEntries.cs" Line="116" Column="48" />
+      <File FileName="Actions/SetupPageEntriesRequestItem.cs" Line="89" Column="30" />
+      <File FileName="Actions/DisplayGridReport.cs" Line="118" Column="73" />
+      <File FileName="Actions/DisplayGridReportRequestItem.cs" Line="134" Column="44" />
+      <File FileName="Actions/ShowVideo.cs" Line="117" Column="43" />
+      <File FileName="Actions/ShowVideoRequstItem.cs" Line="111" Column="67" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Help" expanded="True">
+            <Node name="Help" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Actions" expanded="True">
+                <Node name="DisplayGridReportRequestItem.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

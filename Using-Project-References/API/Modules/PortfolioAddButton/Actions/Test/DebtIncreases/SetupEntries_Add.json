@@ -1,0 +1,16 @@
+{
+"common":{
+"plugin": "PortfolioAddButton",
+"version": "",
+"userName": "SomeValue",
+"password": "SomeValue",
+"companyId": "1050",
+"clientId": "35530",
+"controller": "",
+"Action": "DebtIncreasesDlg",
+"debug": ""
+}
+,"data":{
+"PortfolioId": "36911","Option1Id": "17","Option2Id": "32272","GridId": "0","IncreaseId": "32272","Category": "SetupPageEntries"
+}
+}

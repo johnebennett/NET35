@@ -1,0 +1,67 @@
+{
+  "author": "John Bennett",
+  "fileName": "NewPaymentPreviewGridRptRequestItem",
+  "namespace": "Actions.PaymentOperations",
+  "className": "NewPaymentPreviewGridRptRequestItem",
+  "properties":
+    [
+        {"name": "RunId", "validate": "Y", "dataType": "int"},
+        {"name": "PassedId", "validate": "Y", "dataType": "int"},
+        {"name": "ButtonId", "validate": "Y", "dataType": "int"}
+    ],
+  "includes":
+  [
+    "System",
+    "System.Data",
+    "System.Collections.Generic",
+    "CommonUtilities",
+    "EAOfficeAPI",
+    "Newtonsoft.Json.Linq"
+  ],
+  "methodStubs":
+    [
+      {"region": "Load for CompanyId and CloseAccountRunId",
+       "name": "Load",
+       "Parameters":["string ConnectionString,", "Int64 CompanyId,", "Int64 CloseAccountRunId"],
+       "content":
+       [
+          "//public string Load(ActionBase AActionBase, JObject DataObject)",
+          "public string Load(ActionBase ActionBase)",
+          "{",
+          "    string Result = \"\";",
+          "    string ClassName = this.GetType().ToString();",
+          "    string Method = ClassName + \".LoadFromDataObject\";",
+          "",
+          "    ActionBase.LogOnInsideMethod(Method);",
+          "",
+          "    try",
+          "    {",
+          "        Clear();",
+          "",
+          "        __ClassName__ TempItem = new __ClassName__();",
+          "        Result = CommonMethods.Load__ClassName__(ActionBase, ref TempItem);",
+          "        if (!string.IsNullOrEmpty(Result))",
+          "        {",
+          "            Result = ActionBase.LogOnProcessingError(Method, Result, \"\");",
+          "        }",
+          "        else",
+          "        {",
+          "            Result = Update(TempItem);",
+          "        }",
+          "    }",
+          "    catch (Exception Ex)",
+          "    {",
+          "        Result = ActionBase.LogOnException(Method, Ex, \"\");",
+          "        return Result;",
+          "    }",
+          "    finally",
+          "    {",
+          "        ActionBase.LogOnLeavingMethod(Method);",
+          "    }",
+          "",
+          "    return Result;",
+          "}"
+       ]
+       }
+    ]
+}

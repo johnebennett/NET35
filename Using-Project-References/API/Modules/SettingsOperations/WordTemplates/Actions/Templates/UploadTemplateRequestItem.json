@@ -1,0 +1,71 @@
+{
+  "author": "John Bennett",
+  "fileName": "UploadTemplateRequestItem",
+  "namespace": "Actions.SettingsOperations.WordTemplates",
+  "className": "UploadTemplateRequestItem",
+  "properties":
+    [
+        {"name": "DisplayCategoryId", "validate": "Y", "dataType": "int"},
+        {"name": "OptionsId", "validate": "Y", "dataType": "int"},
+        {"name": "TemplateId", "validate": "Y", "dataType": "int"},
+        {"name": "FileOptionsId", "validate": "Y", "dataType": "int"},
+        {"name": "DisplayCategory2Id", "validate": "Y", "dataType": "int"},
+        {"name": "FileSize", "validate": "Y", "dataType": "long"} 
+	],
+  "includes":
+  [
+    "System",
+    "System.Data",
+    "System.Collections.Generic",
+    "CommonUtilities",
+	"EAOfficeAPI"
+  ],
+  "methodStubs":
+    [
+      {
+			"region": "Load from DataObject",
+			"name": "Load",
+			"content":
+			[
+				"//public string Load(ActionBase ActionBase, JObject DataObject)",
+				"public string Load(ActionBase ActionBase)",
+			"{",
+				"    string Result = \"\";",
+				"    string ClassName = this.GetType().ToString();",
+				"    //string Method = ClassName + \".LoadFromDataObject\";",
+				"    string Method = ClassName + \".LoadFromActionBase\";",
+				"",
+				"    ActionBase.LogOnInsideMethod(Method);",
+				"",
+				"    try",
+				"    {",
+				"        Clear();",
+				"",
+				"        __ClassName__ TempItem = new __ClassName__();",
+				"        //Result = CommonMethods.Load__ClassName__(DataObject, ref TempItem);",
+				"        Result = CommonMethods.Load__ClassName__(ActionBase, ref TempItem);",
+				"        if (!string.IsNullOrEmpty(Result))",
+				"        {",
+				"            Result = ActionBase.LogOnProcessingError(Method, Result, \"\");",
+				"        }",
+				"        else",
+				"        {",
+				"            Result = Update(TempItem);",
+				"        }",
+				"    }",
+				"    catch (Exception Ex)",
+				"    {",
+				"        Result = ActionBase.LogOnException(Method, Ex, \"\");",
+				"        return Result;",
+				"    }",
+				"    finally",
+				"    {",
+				"        ActionBase.LogOnLeavingMethod(Method);",
+				"    }",
+				"",
+				"    return Result;",
+				"}"
+			]
+       }
+    ]
+}

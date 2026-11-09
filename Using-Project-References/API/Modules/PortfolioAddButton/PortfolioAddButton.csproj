@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{A08F7824-5B59-4066-8517-E83888884D0E}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PortfolioAddButton</RootNamespace>
+    <AssemblyName>PortfolioAddButton</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkProfile />
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <SignAssembly>False</SignAssembly>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <BaseAddress>4194304</BaseAddress>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\..\..\CommonAPIReferences</OutputPath>
+    <PlatformTarget>anycpu</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\..\CommonAPIReferences</OutputPath>
+    <PlatformTarget>anycpu</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CoreAssemblies\ActionBase\ActionBase.csproj">
+      <Project>{294D6321-28CE-4397-BBF0-A4683EFEBF8D}</Project>
+      <Name>ActionBase</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CoreAssemblies\CommonUtilities\CommonUtilities.csproj">
+      <Project>{37E6C7D0-D8C9-44D0-B428-3A2D88AC9B1B}</Project>
+      <Name>CommonUtilities</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <ProjectReference Include="..\..\CoreAssemblies\ProgressLogging\ProgressLogging.csproj">
+      <Project>{A2A4B25E-10A9-47F2-B63C-917BA35153BE}</Project>
+      <Name>ProgressLogging</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CoreAssemblies\RequestProcessor\RequestProcessor.csproj">
+      <Project>{9225BF9B-950C-4A87-96DC-7FE6AA3A5F92}</Project>
+      <Name>RequestProcessor</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+    </Reference>
+    <ProjectReference Include="..\..\CoreAssemblies\UsefulDBMethods\UsefulDBMethods.csproj">
+      <Project>{2AEA18AB-B0EC-4D05-AD7F-42C4FC2AAB04}</Project>
+      <Name>UsefulDBMethods</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\AddChargeDlgMaster.cs" />
+    <Compile Include="Actions\AddChargeDlg\CommonMethods.cs" />
+    <Compile Include="Actions\AddChargeDlg\ReverseCharge.cs" />
+    <Compile Include="Actions\AddChargeDlg\ReverseChargeRequestItem.cs" />
+    <Compile Include="Actions\AddChargeDlg\SaveChanges.cs" />
+    <Compile Include="Actions\AddChargeDlg\SaveChangesRequestItem.cs" />
+    <Compile Include="Actions\AddChargeDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\AddChargeDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\AddChargeDlg\UndoReverse.cs" />
+    <Compile Include="Actions\DebtIncreasesDlgMaster.cs" />
+    <Compile Include="Actions\DebtIncreasesDlg\CommonMethods.cs" />
+    <Compile Include="Actions\DebtIncreasesDlg\SaveCmd.cs" />
+    <Compile Include="Actions\DebtIncreasesDlg\SaveCmdRequestItem.cs" />
+    <Compile Include="Actions\DebtIncreasesDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\DebtIncreasesDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\EditReceiptDlgMaster.cs" />
+    <Compile Include="Actions\EditReceiptDlg\AllPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\EditReceiptDlg\CommonMethods.cs" />
+    <Compile Include="Actions\EditReceiptDlg\Process.cs" />
+    <Compile Include="Actions\EditReceiptDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\EditReceiptDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\EOYBudgetDlgMaster.cs" />
+    <Compile Include="Actions\EOYBudgetDlg\AllPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\EOYBudgetDlg\CommonMethods.cs" />
+    <Compile Include="Actions\EOYBudgetDlg\CreateRevenue.cs" />
+    <Compile Include="Actions\EOYBudgetDlg\DisplayPdfReport.cs" />
+    <Compile Include="Actions\EOYBudgetDlg\RemoveGridEntry.cs" />
+    <Compile Include="Actions\EOYBudgetDlg\SaveCmd.cs" />
+    <Compile Include="Actions\EOYBudgetDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\EOYBudgetDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\FeesDlgMaster.cs" />
+    <Compile Include="Actions\FeesDlg\ActivateCmd.cs" />
+    <Compile Include="Actions\FeesDlg\AllPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\FeesDlg\CommonMethods.cs" />
+    <Compile Include="Actions\FeesDlg\CopyCmd.cs" />
+    <Compile Include="Actions\FeesDlg\DeactivateCmd.cs" />
+    <Compile Include="Actions\FeesDlg\SaveCmd.cs" />
+    <Compile Include="Actions\FeesDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\FeesDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\HistoryDlgMaster.cs" />
+    <Compile Include="Actions\InvoiceDlgMaster.cs" />
+    <Compile Include="Actions\InvoiceDlg\CommonMethods.cs" />
+    <Compile Include="Actions\InvoiceDlg\ReverseInvoice.cs" />
+    <Compile Include="Actions\InvoiceDlg\ReverseInvoiceRequestItem.cs" />
+    <Compile Include="Actions\InvoiceDlg\SaveInvoice.cs" />
+    <Compile Include="Actions\InvoiceDlg\SaveInvoiceRequestItem.cs" />
+    <Compile Include="Actions\InvoiceDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\InvoiceDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\LedgerEntriesDlgMaster.cs" />
+    <Compile Include="Actions\LedgerEntriesDlg\Add_AllPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\LedgerEntriesDlg\Add_SaveCmd.cs" />
+    <Compile Include="Actions\LedgerEntriesDlg\Add_SetupPageEntries.cs" />
+    <Compile Include="Actions\LedgerEntriesDlg\Add_SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\LedgerEntriesDlg\CommonMethods.cs" />
+    <Compile Include="Actions\LedgerEntriesDlg\CommonRequestItem.cs" />
+    <Compile Include="Actions\LedgerEntriesDlg\Edit_AllPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\LedgerEntriesDlg\Edit_ReverseCmd.cs" />
+    <Compile Include="Actions\LedgerEntriesDlg\Edit_UpdateCmd.cs" />
+    <Compile Include="Actions\LedgerEntriesDlg\GetLedgerEntryDetails.cs" />
+    <Compile Include="Actions\PayeeDlgMaster.cs" />
+    <Compile Include="Actions\PayeeDlg\AddPayee.cs" />
+    <Compile Include="Actions\PayeeDlg\AddPayeeRequestItem.cs" />
+    <Compile Include="Actions\PayeeDlg\CommonMethods.cs" />
+    <Compile Include="Actions\PayeeDlg\GetPayeeDetails.cs" />
+    <Compile Include="Actions\PayeeDlg\GetPayeeDetailsRequestItem.cs" />
+    <Compile Include="Actions\PayeeDlg\Post.cs" />
+    <Compile Include="Actions\PayeeDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\PayeeDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\PayeeDlg\UpdateRecord.cs" />
+    <Compile Include="Actions\PayeeDlg\UpdateRecordRequestItem.cs" />
+    <Compile Include="Actions\PreferredSupplierDlgMaster.cs" />
+    <Compile Include="Actions\PreferredSupplierDlg\CommonMethods.cs" />
+    <Compile Include="Actions\PreferredSupplierDlg\DeleteCmd.cs" />
+    <Compile Include="Actions\PreferredSupplierDlg\SaveCmd.cs" />
+    <Compile Include="Actions\PreferredSupplierDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\PreferredSupplierDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\RecurringDebtsDlgMaster.cs" />
+    <Compile Include="Actions\RecurringDebtsDlg\ActivateCmd.cs" />
+    <Compile Include="Actions\RecurringDebtsDlg\CommonMethods.cs" />
+    <Compile Include="Actions\RecurringDebtsDlg\DeActivateCmd.cs" />
+    <Compile Include="Actions\RecurringDebtsDlg\SaveCmd.cs" />
+    <Compile Include="Actions\RecurringDebtsDlg\SaveCmdRequestItem.cs" />
+    <Compile Include="Actions\RecurringDebtsDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\RecurringDebtsDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\RecurringInvoicesDlgMaster.cs" />
+    <Compile Include="Actions\RecurringInvoicesDlg\ActivateCmd.cs" />
+    <Compile Include="Actions\RecurringInvoicesDlg\AllPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\RecurringInvoicesDlg\CommonMethods.cs" />
+    <Compile Include="Actions\RecurringInvoicesDlg\DeactivateCmd.cs" />
+    <Compile Include="Actions\RecurringInvoicesDlg\GenerateCmd.cs" />
+    <Compile Include="Actions\RecurringInvoicesDlg\SaveCmd.cs" />
+    <Compile Include="Actions\RecurringInvoicesDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\RecurringInvoicesDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\RelationGetDisplayValues.cs" />
+    <Compile Include="Actions\RelationsAddDlgMaster.cs" />
+    <Compile Include="Actions\RelationsAddDlg\CommonMethods.cs" />
+    <Compile Include="Actions\RelationsAddDlg\Post.cs" />
+    <Compile Include="Actions\RelationsAddDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\RelationsAddDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\RelationsDlgMaster.cs" />
+    <Compile Include="Actions\RelationsDlg\AddToList.cs" />
+    <Compile Include="Actions\RelationsDlg\AllPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\RelationsDlg\CommonMethods.cs" />
+    <Compile Include="Actions\RelationsDlg\Post.cs" />
+    <Compile Include="Actions\RelationsDlg\RemoveFromList.cs" />
+    <Compile Include="Actions\RelationsDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\RelationsDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\RelationsReplaceDlgMaster.cs" />
+    <Compile Include="Actions\RelationsReplaceDlg\AddLedger.cs" />
+    <Compile Include="Actions\RelationsReplaceDlg\CommonMethods.cs" />
+    <Compile Include="Actions\RelationsReplaceDlg\OnTransferOptionChange.cs" />
+    <Compile Include="Actions\RelationsReplaceDlg\Post.cs" />
+    <Compile Include="Actions\RelationsReplaceDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\RelationsReplaceDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\SubLedgerDlgMaster.cs" />
+    <Compile Include="Actions\SubLedgerDlg\CommonMethods.cs" />
+    <Compile Include="Actions\SubLedgerDlg\RemoveGridEntry.cs" />
+    <Compile Include="Actions\SubLedgerDlg\SaveCmd.cs" />
+    <Compile Include="Actions\SubLedgerDlg\SaveCmdRequestItem.cs" />
+    <Compile Include="Actions\SubLedgerDlg\SetupPageEntries.cs" />
+    <Compile Include="Actions\SubLedgerDlg\SetupPageEntriesRequestItem.cs" />
+    <Compile Include="Actions\TransactionGetDisplayType.cs" />
+    <Compile Include="PortfolioAddButton.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Actions\DebtIncreasesDlg\DeleteCmd.cs" />
+    <Compile Include="Actions\RecurringDebtsDlg\GenerateCharge.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions" />
+    <Folder Include="Actions\AddChargeDlg" />
+    <Folder Include="Actions\DebtIncreasesDlg" />
+    <Folder Include="Actions\InvoiceDlg" />
+    <Folder Include="Actions\FeesDlg" />
+    <Folder Include="Actions\LedgerEntriesDlg" />
+    <Folder Include="Actions\EditReceiptDlg" />
+    <Folder Include="Actions\EOYBudgetDlg" />
+    <Folder Include="Actions\RelationsAddDlg" />
+    <Folder Include="Actions\RelationsReplaceDlg" />
+    <Folder Include="Actions\RelationsDlg" />
+    <Folder Include="Actions\RecurringInvoicesDlg" />
+    <Folder Include="Actions\PreferredSupplierDlg" />
+    <Folder Include="Actions\PayeeDlg" />
+    <Folder Include="Actions\SubLedgerDlg" />
+    <Folder Include="Actions\RecurringDebtsDlg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

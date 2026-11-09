@@ -1,0 +1,94 @@
+Processing the file: SetupEntries_Add.json
+arg: D
+SetupEntries_Add.json
+
+{
+"common":{
+"plugin": "PortfolioAddButton",
+"version": "",
+"userName": "SomeValue",
+"password": "SomeValue",
+"companyId": "1050",
+"clientId": "35530",
+"controller": "",
+"Action": "DebtIncreasesDlg",
+"debug": ""
+}
+,"data":{
+"PortfolioId": "36911","Option1Id": "17","Option2Id": "32272","GridId": "0","IncreaseId": "32272","Category": "SetupPageEntries"
+}
+}
+
+
+Using HTTP Binding
+Service Location: http://softwarecustomisedsolutions.com:55000/EAOfficeAPI
+{      "Property": "25 Acheson Place, Coburg, Vic, 3058."
+,
+      "Client": "Brake Tyre & Diesel Pty Ltd."
+,
+      "Owner": "Mr & Mrs S & N Simeoni"
+,
+  "futureorpast": [
+    {
+      "Name": "Future Increase",
+      "Value": "0",
+      "Default": "1"
+    }
+,
+    {
+      "Name": "Past Increase",
+      "Value": "1"
+    }
+  ]
+,
+      "IncreaseDate": "22/06/2020"
+,
+      "FixedAmount": "0.00"
+,
+      "PercentageIncrease": "0.00"
+,
+      "Detail": ""
+,
+      "CPIIncrease": "N"
+,
+      "CPIPlusExtraInterest": "0.00"
+,
+  "operand": [
+    {
+      "Name": ">",
+      "Value": "0",
+      "Default": "1"
+    }
+,
+    {
+      "Name": "<",
+      "Value": "1"
+    }
+  ]
+,
+      "ComparePercentage": "0.00"
+,
+      "AllowIncreaseDateChange": "Y"
+,
+      "AllowFixedAmountChange": "Y"
+,
+      "AllowPercentageIncreaseCharge": "Y"
+,
+      "AllowDetailChange": "Y"
+,
+      "AllowCPIIncreaseChange": "Y"
+,
+      "AllowCPIExtraInterestChange": "Y"
+,
+      "AllowCPIOperandChange": "Y"
+,
+      "AllowCPIComparePercentageChange": "Y"
+,
+      "AllowChangePastFuture": "Y"
+,
+      "ShowCpiDetails": "Y"
+,
+      "GetSQL": "select * from EACHARGEADDEDITINCGROUP (1050,36911,32272,35530,0,0,__2020-06-22__,0.00,0.00,__N__,0.00,0,0.00,____)"
+,
+      "SAVESQL": "EXECUTE PROCEDURE EACHARGEADDEDITINCsave(1050,36911,32272,35530,0,@pastorfuture,@dateofincrease,@fixedamount,@PERCENTAGEINCREASE,2),@cpi,@EXTRAINTEREST,@operand,@COMPAREPERCENTAGE,@INCREASEDETAIL)"
+}

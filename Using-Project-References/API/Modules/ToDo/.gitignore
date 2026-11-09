@@ -1,0 +1,9 @@
+*.dll
+*.pdb
+bin/*.dll
+bin/*.pdb
+bin/Debug/
+obj/Debug/
+.vs/
+AddJobTypeDlg
+*.cache

@@ -1,0 +1,82 @@
+{
+  "author": "John Bennett",
+  "fileName": "NewPaymentPreviewApplyRequestItem",
+  "namespace": "Actions.PaymentOperations",
+  "className": "NewPaymentPreviewApplyRequestItem",
+  "properties":
+    [
+        {"name": "RunId", "validate": "Y", "dataType": "int"},
+        {"name": "BankId", "validate": "Y", "dataType": "int"},
+        {"name": "AccountTypeId", "validate": "Y", "dataType": "int"},
+        {"name": "BranchId", "validate": "Y", "dataType": "int"},
+        {"name": "ManagerId", "validate": "Y", "dataType": "int"},
+        {"name": "OrderId", "validate": "N", "dataType": "int"},
+        {"name": "MidMonth", "validate": "Y", "dataType": "string"},
+        {"name": "AccountId", "validate": "Y", "dataType": "int"},
+        {"name": "RunNumberId", "validate": "Y", "dataType": "int"},
+        {"name": "AllIsSelected", "validate": "Y", "dataType": "string"},
+        {"name": "Preview", "validate": "Y", "dataType": "string"},
+        {"name": "MultiDirectRun", "validate": "Y", "dataType": "string"},
+        {"name": "DirectEntryUserNumber", "validate": "Y", "dataType": "int"},
+        {"name": "BPay", "validate": "N", "dataType": "string"},
+        {"name": "WhoBy", "validate": "N", "dataType": "string"},
+        {"name": "StatementDate", "validate": "N", "dataType": "string"},
+        {"name": "BPayBankUserId", "validate": "Y", "dataType": "int"},
+        {"name": "BPayMinimum", "validate": "Y", "dataType": "double"},
+        {"name": "PaymentEventId", "validate": "Y", "dataType": "int"}
+    ],
+  "includes":
+  [
+    "System",
+    "System.Data",
+    "System.Collections.Generic",
+    "CommonUtilities",
+    "EAOfficeAPI",
+    "Newtonsoft.Json.Linq"
+  ],
+  "methodStubs":
+    [
+      {"region": "Load for CompanyId and CloseAccountRunId",
+       "name": "Load",
+       "Parameters":["string ConnectionString,", "Int64 CompanyId,", "Int64 CloseAccountRunId"],
+       "content":
+       [
+          "public string Load(ActionBase AActionBase, JObject DataObject)",
+          "{",
+          "    string Result = \"\";",
+          "    string ClassName = this.GetType().ToString();",
+          "    string Method = ClassName + \".LoadFromDataObject\";",
+          "",
+          "    AActionBase.LogOnInsideMethod(Method);",
+          "",
+          "    try",
+          "    {",
+          "        Clear();",
+          "",
+          "        __ClassName__ TempItem = new __ClassName__();",
+          "        Result = CommonMethods.Load__ClassName__(DataObject, ref TempItem);",
+          "        if (!string.IsNullOrEmpty(Result))",
+          "        {",
+          "            Result = AActionBase.LogOnProcessingError(Method, Result, \"\");",
+          "        }",
+          "        else",
+          "        {",
+          "            Result = Update(TempItem);",
+          "        }",
+          "    }",
+          "    catch (Exception Ex)",
+          "    {",
+          "        Result = AActionBase.LogOnException(Method, Ex, \"\");",
+          "        return Result;",
+          "    }",
+          "    finally",
+          "    {",
+          "        AActionBase.LogOnLeavingMethod(Method);",
+          "    }",
+          "",
+          "    return Result;",
+          "}"
+       ]
+       }
+    ]
+}

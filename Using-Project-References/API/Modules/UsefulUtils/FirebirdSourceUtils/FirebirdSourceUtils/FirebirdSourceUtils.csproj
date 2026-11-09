@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AACC991C-39AC-48BE-B86E-4541427A772F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FirebirdSourceUtils</RootNamespace>
+    <AssemblyName>UsefulUtils.FirebirdSourceUtils</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\CommonAPIReferences</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\..\CommonAPIReferences</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <ProjectReference Include="..\..\..\..\CoreAssemblies\ActionBase\ActionBase.csproj">
+      <Project>{294D6321-28CE-4397-BBF0-A4683EFEBF8D}</Project>
+      <Name>ActionBase</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\CoreAssemblies\CommonUtilities\CommonUtilities.csproj">
+      <Project>{37E6C7D0-D8C9-44D0-B428-3A2D88AC9B1B}</Project>
+      <Name>CommonUtilities</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\packages\Newtonsoft.Json.6.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <ProjectReference Include="..\..\..\..\CoreAssemblies\ProgressLogging\ProgressLogging.csproj">
+      <Project>{A2A4B25E-10A9-47F2-B63C-917BA35153BE}</Project>
+      <Name>ProgressLogging</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\CoreAssemblies\RequestProcessor\RequestProcessor.csproj">
+      <Project>{9225BF9B-950C-4A87-96DC-7FE6AA3A5F92}</Project>
+      <Name>RequestProcessor</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <Reference Include="System.Data" />
+    <ProjectReference Include="..\..\..\..\CoreAssemblies\UsefulDBMethods\UsefulDBMethods.csproj">
+      <Project>{2AEA18AB-B0EC-4D05-AD7F-42C4FC2AAB04}</Project>
+      <Name>UsefulDBMethods</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FirebirdSourceUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Actions\CommonMethods.cs" />
+    <Compile Include="Actions\GetStoredProcSource.cs" />
+    <Compile Include="Actions\CommonRequestItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

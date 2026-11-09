@@ -1,0 +1,31 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Actions/CommonMethods.cs">
+    <Files>
+      <File FileName="Client.cs" Line="13" Column="28" />
+      <File FileName="Actions/DisplayPdfReport.cs" Line="115" Column="18" />
+      <File FileName="Actions/SetupPageEntries.cs" Line="128" Column="32" />
+      <File FileName="Actions/CommonMethods.cs" Line="203" Column="62" />
+      <File FileName="Actions/SaveChanges.cs" Line="128" Column="28" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Client" expanded="True">
+            <Node name="Client" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Actions" expanded="True">
+                <Node name="CommonMethods.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

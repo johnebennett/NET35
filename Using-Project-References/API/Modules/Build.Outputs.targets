@@ -1,0 +1,14 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Imported only for this script's builds; project files are never edited. -->
+  <PropertyGroup>
+    <ModulesBuildRoot>$(MSBuildThisFileDirectory)</ModulesBuildRoot>
+    <ModulesCoreSourceRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\CoreAssemblies\'))</ModulesCoreSourceRoot>
+  </PropertyGroup>
+  <PropertyGroup Condition="$([System.String]::Copy('$(MSBuildProjectDirectory)').StartsWith('$(ModulesBuildRoot)'))">
+    <OutputPath>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(Platform)\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="$([System.String]::Copy('$(MSBuildProjectDirectory)').StartsWith('$(ModulesCoreSourceRoot)'))">
+    <OutputPath>$(ModulesBuildRoot)artifacts\core\$(MSBuildProjectName)\bin\$(Configuration)\$(Platform)\</OutputPath>
+    <IntermediateOutputPath>$(ModulesBuildRoot)artifacts\core\$(MSBuildProjectName)\obj\$(Configuration)\$(Platform)\</IntermediateOutputPath>
+  </PropertyGroup>
+</Project>

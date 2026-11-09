@@ -1,0 +1,204 @@
+/*
+ * Created by SharpDevelop.
+ * User: John
+ * Date: 07/10/2019
+ * Time: 7:00 AM
+ * 
+ * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ */
+using System;
+using System.Text;
+using System.Data;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.IO;
+
+/*
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+*/
+
+using CommonUtilities;
+using EAOfficeAPI;
+
+namespace Actions.Reconcilliation.GatherReconcileGridEntries
+{
+	/// <summary>
+	/// Description of GatherReconcileGridEntries.
+	/// </summary>
+	public class GatherReconcileGridEntries : ActionBase
+	{
+		private string FModuleName = "Reconcilliation";
+		private GatherReconcileGridEntriesRequestItem FRequestItem;
+
+		public static string Execute(int MasterId,
+									 APISettingsItem SettingsItem,
+									 string Request,
+									 out string ErrorMsg)
+		{
+			string Method = "Execute";
+			string Result = "";
+			ErrorMsg = "";
+
+			GatherReconcileGridEntries inst = new GatherReconcileGridEntries();
+			if (!inst.Setup(MasterId, SettingsItem, Request, out ErrorMsg))
+				return "";
+			
+			inst.LogOnInsideMethod(Method);
+			try
+			{
+				Result = inst.Init();				
+				if (!string.IsNullOrEmpty(Result))
+				{
+					WindowsEventLoggingUtilities.WriteToInfoEvent(Result, Method, MasterId);
+					return "";
+				}
+				
+				Result = inst.Validate();
+				if (!string.IsNullOrEmpty(Result))
+				{
+					WindowsEventLoggingUtilities.WriteToInfoEvent(Result, Method, MasterId);
+					return "";
+				}
+
+				Result = inst.Output();
+				UsefulDBMethods.Helpers.RunEAMainOfficeProcess(inst.FbConnectionString, inst.CommonItem.CompanyIdValue);
+			}
+			finally
+			{
+				inst.LogOnLeavingMethod(Method);
+			}
+			
+			return Result;
+		}
+			
+		private string Init()
+		{
+			string Method = "Init";
+			string Result = "";
+			WindowsEventLoggingUtilities.WriteToInfoEvent("Inside: " +Method, FModuleName, MasterId);
+			LogOnInsideMethod(Method);
+			try 
+			{
+				FRequestItem = new GatherReconcileGridEntriesRequestItem();
+				Result = FRequestItem.Load((ActionBase)this);
+			}
+			catch (Exception Ex)
+			{
+				Result = LogOnException(Method, Ex, "");
+			}
+			finally
+			{
+				LogOnLeavingMethod(Method);
+			}
+			return Result;
+		}
+			
+		private string Validate()
+		{
+			string Method = "Validate";
+			string Result = "";
+			WindowsEventLoggingUtilities.WriteToInfoEvent("Inside: " + Method, FModuleName, MasterId);
+			LogOnInsideMethod(Method);
+			try 
+			{
+				Result = FRequestItem.Validate();
+			}
+			catch (Exception Ex)
+			{
+				Result = LogOnException(Method, Ex, "");
+			}
+			finally
+			{
+				LogOnLeavingMethod(Method);
+			}
+			return Result;
+		}
+		
+		private string Output()
+		{
+			string Method = "Output";
+			string Result = "";
+			string ErrorMsg = "";
+			WindowsEventLoggingUtilities.WriteToInfoEvent("Inside: " +Method, FModuleName, MasterId);
+			LogOnInsideMethod(Method);
+			try 
+			{
+				StringBuilder Entries = new StringBuilder();
+				ErrorMsg = BuildOutput(ref Entries);
+				if (!string.IsNullOrEmpty(ErrorMsg))
+				{
+					Result = LogOnProcessingError(Method, ErrorMsg, "");
+				}
+				else
+				{
+					Result =
+						JsonUtilities.StartJson() +
+						Entries.ToString() +
+						JsonUtilities.EndJson();
+				}
+			}
+			catch (Exception Ex)
+			{
+				Result = LogOnException(Method, Ex, "");
+			}
+			finally
+			{
+				LogOnLeavingMethod(Method);
+			}
+			WindowsEventLoggingUtilities.WriteToInfoEvent("Leaving: " +Method, FModuleName, MasterId);
+			return Result;
+		}
+		
+		private string BuildOutput(ref StringBuilder Entries)
+		{
+			string Result = "";
+			string Method = "BuildOutput";
+			
+			LogOnInsideMethod(Method);
+			try
+			{
+				WindowsEventLoggingUtilities.WriteToInfoEvent("Inside BuildOutput", FModuleName, MasterId);
+				
+				string QueryText = 
+					" SELECT OUTPUTLINE" +
+					" FROM EABankEntriesGroup(@CompanyId, @BankId, @BankType, @PageNo, @PresentedPageNo)";
+				List<FbParameterItem> Params = new List<FbParameterItem>();
+				Params.Add(new FbParameterItem("@CompanyId", CommonItem.CompanyIdValue));
+				Params.Add(new FbParameterItem("@BankId", FRequestItem.BankId));
+				Params.Add(new FbParameterItem("@BankType", FRequestItem.BankType));
+				Params.Add(new FbParameterItem("@PageNo", FRequestItem.PageNo));
+				Params.Add(new FbParameterItem("@PresentedPageNo", FRequestItem.PresentedPageNo));
+				Result = UsefulDBMethods.Helpers.WriteParamsToInfoEvent(QueryText, Params, FModuleName, MasterId);
+	
+				DataTable tbl = null;
+				if (string.IsNullOrEmpty(Result))
+				{
+					tbl =
+						UsefulDBMethods.Helpers.GetFirstDataTableEx(
+							FbConnectionString, QueryText, Params, 0, UsefulDBMethods.FirebirdQueryCheckTypes.HasTables, out Result);
+				}
+				
+				if (string.IsNullOrEmpty(Result))
+				{
+					foreach (DataRow Row in tbl.Rows)
+					{
+						Object Obj = Row["OUTPUTLINE"];
+						Entries.AppendLine((Obj == DBNull.Value) ? "" : Convert.ToString(Obj));
+					}
+				}
+			}
+			catch (Exception Ex)
+			{
+				Result = LogOnException(Method, Ex, "");
+			}
+			finally
+			{
+				LogOnLeavingMethod(Method);
+			}
+			
+			return Result;
+		}
+	}
+}

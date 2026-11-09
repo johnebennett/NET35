@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CDD2793F-C740-4F4A-9627-63A27FE6F395}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TwoFADlg</RootNamespace>
+    <AssemblyName>SettingsOperations.TwoFADlg</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\CommonAPIReferences</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\CommonAPIReferences</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="ActionBase">
+      <HintPath>..\..\..\..\CommonAPIReferences\ActionBase.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CommonUtilities">
+      <HintPath>..\..\..\..\CommonAPIReferences\CommonUtilities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\CommonAPIReferences\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ProgressLogging">
+      <HintPath>..\..\..\..\CommonAPIReferences\ProgressLogging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RequestProcessor">
+      <HintPath>..\..\..\..\CommonAPIReferences\RequestProcessor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="UsefulDBMethods">
+      <HintPath>..\..\..\..\CommonAPIReferences\UsefulDBMethods.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Otp.NET">
+      <HintPath>..\..\..\..\CommonAPIReferences\Otp.NET.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="QrCodeGenerator">
+      <HintPath>..\..\..\..\CommonAPIReferences\QrCodeGenerator.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TwoFADlg.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Actions\CommonMethods.cs" />
+    <Compile Include="Actions\ResetQRCode.cs" />
+    <Compile Include="Actions\ResetQRCodeRequestItem.cs" />
+    <Compile Include="Actions\Base32Encoding.cs" />
+    <Compile Include="Actions\GenerateQRCodeRequestItem.cs" />
+    <Compile Include="Actions\GenerateQRCode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

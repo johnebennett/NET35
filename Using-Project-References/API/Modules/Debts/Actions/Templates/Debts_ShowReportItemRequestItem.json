@@ -1,0 +1,82 @@
+{
+  "author": "John Bennett",
+  "fileName": "Debts_ShowReportItemRequestItem",
+  "namespace": "Actions.Debts",
+  "className": "Debts_ShowReportItemRequestItem",
+  "properties":
+    [
+        {"name": "MasterExclusionId", "validate": "Y", "dataType": "int"},
+        {"name": "OfficeId", "validate": "Y", "dataType": "int"},
+        {"name": "ReportsId", "validate": "Y", "dataType": "int"},
+        {"name": "ManagerId", "validate": "Y", "dataType": "int"},
+        {"name": "PastEventsId", "validate": "Y", "dataType": "int"},
+        {"name": "BankTypesId", "validate": "Y", "dataType": "int"},
+        {"name": "LedgerTypeId", "validate": "Y", "dataType": "int"},
+        {"name": "LedgerId", "validate": "Y", "dataType": "int"},
+        {"name": "TransactionTypeId", "validate": "Y", "dataType": "int"},
+        {"name": "TransactionsId", "validate": "Y", "dataType": "int"},
+        {"name": "PrintGroupId", "validate": "Y", "dataType": "int"},
+        {"name": "ChargeOptionsId", "validate": "Y", "dataType": "int"},
+        {"name": "RangeFrom", "validate": "Y", "dataType": "int"},
+        {"name": "RangeTo", "validate": "Y", "dataType": "int"},
+        {"name": "PortfolioId", "validate": "Y", "dataType": "int"},
+        {"name": "ButtonId", "validate": "Y", "dataType": "int"}
+    ],
+  "includes":
+  [
+    "System",
+    "System.Data",
+    "System.Collections.Generic",
+    "CommonUtilities",
+    "EAOfficeAPI",
+    "Newtonsoft.Json.Linq"
+  ],
+  "methodStubs":
+    [
+      {
+			"region": "Load from DataObject",
+			"name": "Load",
+			"content":
+			[
+				"//public string Load(ActionBase ActionBase, JObject DataObject)",
+				"public string Load(ActionBase ActionBase)",
+			"{",
+				"    string Result = \"\";",
+				"    string ClassName = this.GetType().ToString();",
+				"    //string Method = ClassName + \".LoadFromDataObject\";",
+				"    string Method = ClassName + \".LoadFromActionBase\";",
+					"",
+				"    ActionBase.LogOnInsideMethod(Method);",
+				"",
+				"    try",
+				"    {",
+				"        Clear();",
+				"",
+				"        __ClassName__ TempItem = new __ClassName__();",
+				"        //Result = CommonMethods.Load__ClassName__(DataObject, ref TempItem);",
+				"        Result = CommonMethods.Load__ClassName__(ActionBase, ref TempItem);",
+				"        if (!string.IsNullOrEmpty(Result))",
+				"        {",
+				"            Result = ActionBase.LogOnProcessingError(Method, Result, \"\");",
+				"        }",
+				"        else",
+				"        {",
+				"            Result = Update(TempItem);",
+				"        }",
+				"    }",
+				"    catch (Exception Ex)",
+				"    {",
+				"        Result = ActionBase.LogOnException(Method, Ex, \"\");",
+				"        return Result;",
+				"    }",
+				"    finally",
+				"    {",
+				"        ActionBase.LogOnLeavingMethod(Method);",
+				"    }",
+				"",
+				"    return Result;",
+				"}"
+			]
+       }
+    ]
+}

@@ -1,0 +1,76 @@
+{
+  "author": "John Bennett",
+  "fileName": "UpdateOCCertificateRequestItem",
+  "namespace": "Actions.Portfolio",
+  "className": "UpdateOCCertificateRequestItem",
+  "properties":
+    [
+        {"name": "RecordId", "validate": "Y", "dataType": "int"},
+        {"name": "PortfolioId", "validate": "Y", "dataType": "int"},
+        {"name": "Address", "validate": "N", "dataType": "string"},
+        {"name": "InPresenceOf", "validate": "N", "dataType": "string"},
+        {"name": "LotNo", "validate": "N", "dataType": "string"},
+        {"name": "PlanNo", "validate": "N", "dataType": "string"},
+        {"name": "PostalAddress", "validate": "N", "dataType": "string"},
+        {"name": "Applicant", "validate": "N", "dataType": "string"},
+        {"name": "DeliveryAddress", "validate": "N", "dataType": "string"},
+        {"name": "OCDate", "validate": "Y", "dataType": "string"},
+        {"name": "IssuedDate", "validate": "Y", "dataType": "string"},
+        {"name": "EntityName", "validate": "N", "dataType": "string"},
+        {"name": "CategoryOnlyId", "validate": "Y", "dataType": "int"},
+        {"name": "NoteContent", "validate": "N", "dataType": "string"}
+    ],
+  "includes":
+  [
+    "System",
+    "System.Data",
+    "System.Collections.Generic",
+    "CommonUtilities",
+    "EAOfficeAPI",
+    "Newtonsoft.Json.Linq"
+  ],
+  "methodStubs":
+    [
+      {"region": "Load from DataObject",
+       "content":
+       [       
+				"//public string Load(ActionBase ActionBase, JObject DataObject)",
+				"public string Load(ActionBase ActionBase)",
+          "{",
+          "    string Result = \"\";",
+          "    string ClassName = this.GetType().ToString();",
+          "    string Method = ClassName + \".LoadFromDataObject\";",
+          "",
+          "    ActionBase.LogOnInsideMethod(Method);",
+          "",
+          "    try",
+          "    {",
+          "        Clear();",
+          "",
+          "        __ClassName__ TempItem = new __ClassName__();",
+          "        Result = CommonMethods.Load__ClassName__(ActionBase, ref TempItem);",
+          "        if (!string.IsNullOrEmpty(Result))",
+          "        {",
+          "            Result = ActionBase.LogOnProcessingError(Method, Result, \"\");",
+          "        }",
+          "        else",
+          "        {",
+          "            Result = Update(TempItem);",
+          "        }",
+          "    }",
+          "    catch (Exception Ex)",
+          "    {",
+          "        Result = ActionBase.LogOnException(Method, Ex, \"\");",
+          "        return Result;",
+          "    }",
+          "    finally",
+          "    {",
+          "        ActionBase.LogOnLeavingMethod(Method);",
+          "    }",
+          "",
+          "    return Result;",
+          "}"
+       ]
+       }
+    ]
+}

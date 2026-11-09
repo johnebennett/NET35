@@ -1,0 +1,29 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="LoggingUtils.cs">
+    <Files>
+      <File FileName="LoggingUtils.cs" Line="1" Column="1" />
+      <File FileName="Actions/CommonMethods.cs" Line="63" Column="12" />
+      <File FileName="Actions/StartStopLogging.cs" Line="142" Column="2" />
+      <File FileName="Actions/StartStopLoggingRequestItem.cs" Line="116" Column="75" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="LoggingUtils" expanded="True">
+            <Node name="LoggingUtils" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Actions" expanded="True" />
+              <Node name="LoggingUtils.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

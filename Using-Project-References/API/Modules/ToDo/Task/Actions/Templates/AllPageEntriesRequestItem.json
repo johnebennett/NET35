@@ -1,0 +1,94 @@
+{
+  "author": "John Bennett",
+  "fileName": "AllPageEntriesRequestItem",
+  "namespace": "Actions.ToDo.Task",
+  "className": "AllPageEntriesRequestItem",
+  "properties":
+    [
+        {"name": "PortfolioId", "validate": "Y", "dataType": "int"},
+        {"name": "TaskId", "validate": "Y", "dataType": "int"},
+        {"name": "TaskType", "validate": "Y", "dataType": "int"},
+        {"name": "ServiceId", "validate": "Y", "dataType": "int"},
+        {"name": "NotesId", "validate": "Y", "dataType": "int"},
+        {"name": "OptionId", "validate": "Y", "dataType": "int"},
+
+        {"name": "Property", "validate": "Y", "dataType": "string"},
+        {"name": "Client", "validate": "Y", "dataType": "string"},
+        {"name": "Owner", "validate": "Y", "dataType": "string"},
+        {"name": "Date", "validate": "Y", "dataType": "string"},
+        {"name": "AssignedTo", "validate": "Y", "dataType": "int"},
+        {"name": "Insurer", "validate": "N", "dataType": "string"},
+        {"name": "Policy", "validate": "N", "dataType": "string"},
+        {"name": "PolicyNumber", "validate": "N", "dataType": "string"},
+        {"name": "RenewalDate", "validate": "N", "dataType": "string"},
+        {"name": "Excess", "validate": "N", "dataType": "double"},
+
+        {"name": "Status", "validate": "Y", "dataType": "int"},
+        {"name": "Priority", "validate": "Y", "dataType": "int"},
+        {"name": "Periodic", "validate": "Y", "dataType": "string"},
+        {"name": "Advance", "validate": "Y", "dataType": "int"},
+        {"name": "Subject", "validate": "Y", "dataType": "string"},
+        {"name": "Notes", "validate": "N", "dataType": "string"},
+
+        {"name": "Tradesperson", "validate": "Y", "dataType": "int"},
+        {"name": "Quoting1", "validate": "Y", "dataType": "int"},
+        {"name": "Quoting2", "validate": "Y", "dataType": "int"},
+        {"name": "Quoting3", "validate": "Y", "dataType": "int"},
+        {"name": "MaintenanceNotes", "validate": "N", "dataType": "string"}
+    ],
+  "includes":
+  [
+    "System",
+    "System.Data",
+    "System.Collections.Generic",
+    "CommonUtilities",
+    "EAOfficeAPI",
+    "Newtonsoft.Json.Linq"
+  ],
+  "methodStubs":
+    [
+      {"region": "Load from DataObject",
+       "content":
+       [
+				"//public string Load(ActionBase ActionBase, JObject DataObject)",
+				"public string Load(ActionBase ActionBase)",
+			"{",
+				"    string Result = \"\";",
+				"    string ClassName = this.GetType().ToString();",
+				"    //string Method = ClassName + \".LoadFromDataObject\";",
+				"    string Method = ClassName + \".LoadFromActionBase\";",
+					"",
+				"    ActionBase.LogOnInsideMethod(Method);",
+				"",
+				"    try",
+				"    {",
+				"        Clear();",
+				"",
+				"        __ClassName__ TempItem = new __ClassName__();",
+				"        //Result = CommonMethods.Load__ClassName__(DataObject, ref TempItem);",
+				"        Result = CommonMethods.Load__ClassName__(ActionBase, ref TempItem);",
+				"        if (!string.IsNullOrEmpty(Result))",
+				"        {",
+				"            Result = ActionBase.LogOnProcessingError(Method, Result, \"\");",
+				"        }",
+				"        else",
+				"        {",
+				"            Result = Update(TempItem);",
+				"        }",
+				"    }",
+				"    catch (Exception Ex)",
+				"    {",
+				"        Result = ActionBase.LogOnException(Method, Ex, \"\");",
+				"        return Result;",
+				"    }",
+				"    finally",
+				"    {",
+				"        ActionBase.LogOnLeavingMethod(Method);",
+				"    }",
+				"",
+				"    return Result;",
+				"}"
+       ]
+       }
+    ]
+}

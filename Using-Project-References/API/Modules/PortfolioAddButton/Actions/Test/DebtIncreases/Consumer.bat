@@ -1,0 +1,1 @@
+call d:\Source\EAOffice\CommonAPIReferences\ConsoleConsumer.exe /D %1 > %2

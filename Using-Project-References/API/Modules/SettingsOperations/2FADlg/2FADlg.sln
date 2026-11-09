@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoFADlg", "TwoFADlg.csproj", "{CDD2793F-C740-4F4A-9627-63A27FE6F395}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDD2793F-C740-4F4A-9627-63A27FE6F395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDD2793F-C740-4F4A-9627-63A27FE6F395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDD2793F-C740-4F4A-9627-63A27FE6F395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDD2793F-C740-4F4A-9627-63A27FE6F395}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{75F4A18E-CCFE-4BAD-B8E8-F736986A7E17}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ComboBoxEntries</RootNamespace>
+    <AssemblyName>ComboBoxEntries</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActionBase">
+      <HintPath>..\..\..\CommonAPIReferences\ActionBase.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonUtilities">
+      <HintPath>..\..\..\CommonAPIReferences\CommonUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\CommonReferences\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ProgressLogging">
+      <HintPath>..\..\..\CommonAPIReferences\ProgressLogging.dll</HintPath>
+    </Reference>
+    <Reference Include="RequestProcessor">
+      <HintPath>..\..\..\CommonAPIReferences\RequestProcessor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UsefulDBMethods">
+      <HintPath>..\..\..\CommonAPIReferences\UsefulDBMethods.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\CommBondsList.cs" />
+    <Compile Include="Actions\CommBondsListRequestItem.cs" />
+    <Compile Include="Actions\CommonComboEntries.cs" />
+    <Compile Include="Actions\CommonFilteredLookups.cs" />
+    <Compile Include="Actions\CommonFilteredLookupsItem.cs" />
+    <Compile Include="Actions\CommonMethods.cs" />
+    <Compile Include="Actions\GetFilterListForMgmtType.cs" />
+    <Compile Include="Actions\ListReport.cs" />
+    <Compile Include="Actions\MgmtPdfReportList.cs" />
+    <Compile Include="Actions\MgmtPdfReportListRequestItem.cs" />
+    <Compile Include="Actions\OCViewReportList.cs" />
+    <Compile Include="Actions\OCViewReportListItem.cs" />
+    <Compile Include="Actions\ResBondsList.cs" />
+    <Compile Include="Actions\ResBondsListRequestItem.cs" />
+    <Compile Include="Actions\StmtKitList.cs" />
+    <Compile Include="Actions\StmtKitListRequestItem.cs" />
+    <Compile Include="ComboBoxEntries.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy ComboBoxEntries.dll ..\..\..\..\..\CommonAPIReferences\</PostBuildEvent>
+  </PropertyGroup>
+</Project>

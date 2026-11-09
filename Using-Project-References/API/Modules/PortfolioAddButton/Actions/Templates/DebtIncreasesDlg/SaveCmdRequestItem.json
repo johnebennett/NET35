@@ -1,0 +1,78 @@
+{
+  "author": "John Bennett",
+  "fileName": "SaveCmdRequestItem",
+  "namespace": "Actions.PortfolioAddButton.DebtIncreasesDlg",
+  "className": "SaveCmdRequestItem",
+  "properties":
+    [
+        {"name": "PortfolioId", "validate": "Y", "dataType": "int"},
+        {"name": "Option1Id", "validate": "Y", "dataType": "int"},
+        {"name": "Option2Id", "validate": "Y", "dataType": "int"},
+        {"name": "GridId", "validate": "Y", "dataType": "int"},
+        {"name": "IncreaseId", "validate": "Y", "dataType": "int"},
+        {"name": "PastOrFuture", "validate": "Y", "dataType": "int"},
+        {"name": "IncreaseDate", "validate": "Y", "dataType": "string"},
+        {"name": "FixedAmount", "validate": "Y", "dataType": "double"},
+        {"name": "PercentIncrease", "validate": "Y", "dataType": "double"},
+        {"name": "Detail", "validate": "N", "dataType": "string"},
+        {"name": "CPIIncrease", "validate": "Y", "dataType": "string"},
+        {"name": "CPIPlusExtraInterest", "validate": "Y", "dataType": "double"},
+        {"name": "Operand", "validate": "Y", "dataType": "int"},
+        {"name": "ComparePercentage", "validate": "Y", "dataType": "double"}
+    ],
+  "includes":
+  [
+    "System",
+    "System.Data",
+    "System.Collections.Generic",
+    "CommonUtilities",
+    "EAOfficeAPI",
+    "Newtonsoft.Json.Linq"
+  ],
+  "methodStubs":
+    [
+      {"region": "Load from DataObject",
+       "content":
+       [
+				"//public string Load(ActionBase ActionBase, JObject DataObject)",
+				"public string Load(ActionBase ActionBase)",
+			"{",
+				"    string Result = \"\";",
+				"    string ClassName = this.GetType().ToString();",
+				"    //string Method = ClassName + \".LoadFromDataObject\";",
+				"    string Method = ClassName + \".LoadFromActionBase\";",
+					"",
+				"    ActionBase.LogOnInsideMethod(Method);",
+				"",
+				"    try",
+				"    {",
+				"        Clear();",
+				"",
+				"        __ClassName__ TempItem = new __ClassName__();",
+				"        //Result = CommonMethods.Load__ClassName__(DataObject, ref TempItem);",
+				"        Result = CommonMethods.Load__ClassName__(ActionBase, ref TempItem);",
+				"        if (!string.IsNullOrEmpty(Result))",
+				"        {",
+				"            Result = ActionBase.LogOnProcessingError(Method, Result, \"\");",
+				"        }",
+				"        else",
+				"        {",
+				"            Result = Update(TempItem);",
+				"        }",
+				"    }",
+				"    catch (Exception Ex)",
+				"    {",
+				"        Result = ActionBase.LogOnException(Method, Ex, \"\");",
+				"        return Result;",
+				"    }",
+				"    finally",
+				"    {",
+				"        ActionBase.LogOnLeavingMethod(Method);",
+				"    }",
+				"",
+				"    return Result;",
+				"}"
+       ]
+       }
+    ]
+}
