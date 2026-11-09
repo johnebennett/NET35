@@ -1,0 +1,32 @@
+<Properties StartupConfiguration="{3891CF7D-22D4-41D9-816F-378800D5C328}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="Program.cs" Line="159" Column="35" />
+      <File FileName="CommonMethods.cs" Line="12" Column="1" />
+      <File FileName="Encoder.cs" Line="41" Column="54" />
+      <File FileName="Decoder.cs" Line="45" Column="50" />
+      <File FileName="CommandLineParams.cs" Line="129" Column="41" />
+      <File FileName="../../../Projects/ProgressLogging/ProgressLogging.cs" Line="33" Column="19" />
+      <File FileName="../../../Projects/CommonUtilities/ReportUtilities.cs" Line="511" Column="18" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Base64EncoderDecoder" expanded="True">
+            <Node name="Base64EncoderDecoder" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Base64EncoderDecoder PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
