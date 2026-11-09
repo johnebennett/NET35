@@ -1,0 +1,13 @@
+{
+    "BuildWhereClause": "Y",
+    "_SelectQuery": "SELECT FIRST 1 EVA_ID FROM EAEventRun WHERE {0} EMAIL_STATUS = 'NEW' ORDER BY EVA_ID",
+    "__SelectQuery": "SELECT FIRST 1 EVA_ID FROM EAEventRun WHERE {0} EMAIL_STATUS = 'NEW' AND I_EVA_GOATActivityCount {1} ORDER BY EVA_ID",
+    "SelectQuery": "SELECT FIRST 1 EVA_ID FROM EAEventRun WHERE EMAIL_STATUS = 'NEW' {0} ORDER BY EVA_ID",
+    "ActivitySelector": "<=",
+    "ActivityCount": "10", 
+    "CompanyIdIn": "1000",
+    "CompanyIdNotIn": "",
+    "DelayBetweenSearches": "10000",
+    "MaxNumberOfInstances": "10",
+    "TargetAppName": "EmailProcessor.exe"
+}

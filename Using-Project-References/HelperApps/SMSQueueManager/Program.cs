@@ -9,7 +9,6 @@
 using System;
 using System.Data;
 using System.Threading;
-//using System.Threading.Tasks;
 using System.Timers;
 using SMSQueueManager.Actions;
 using CommonUtilities;
@@ -17,7 +16,6 @@ using EAOfficeAPI;
 using System.Diagnostics;
 using System.Reflection;
 using System.IO;
-using Microsoft.VisualBasic.Devices;
 
 namespace SMSQueueManager
 {
@@ -54,7 +52,6 @@ namespace SMSQueueManager
 				if (string.IsNullOrEmpty(ErrorMsg))
 				{
 					System.Timers.Timer timer = 
-						//new System.Timers.Timer(5000); // Set the timer interval to 1 minute (60000 milliseconds)
 						new System.Timers.Timer(Delay); // Set the timer interval to 1 minute (60000 milliseconds)
 			        timer.Elapsed += TimerElapsed;	
 			        timer.Start();		
