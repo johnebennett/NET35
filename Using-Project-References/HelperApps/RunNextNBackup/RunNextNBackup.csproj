@@ -50,10 +50,16 @@
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+
+    <ProjectReference Include="..\..\API\CoreAssemblies\CommonUtilities\CommonUtilities.csproj">
+      <Project>{37E6C7D0-D8C9-44D0-B428-3A2D88AC9B1B}</Project>
+      <Name>CommonUtilities</Name>
+    </ProjectReference>
+
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonMethods.cs" />
-    <Compile Include="JsonUtilities.cs" />
+    <!--Compile Include="JsonUtilities.cs" /-->
     <Compile Include="Processor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
