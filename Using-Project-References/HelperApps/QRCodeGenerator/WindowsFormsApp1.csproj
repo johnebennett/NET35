@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -41,12 +41,10 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Otp.NET">
-      <HintPath>..\..\..\..\CommonAPIReferences\Otp.NET.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\packages\Otp.NET.1.2.2-localnet35\lib\net35\Otp.NET.dll</HintPath>
     </Reference>
     <Reference Include="QrCodeGenerator">
-      <HintPath>..\..\..\..\CommonAPIReferences\QrCodeGenerator.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\packages\Net.Codecrete.QrCodeGenerator.1.6.1-localnet35\lib\net35\QrCodeGenerator.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +69,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
