@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{4F6DE521-9F1F-4488-B10B-82A9DAC7C392}|Default">
+  <MonoDevelop.Ide.ItemProperties.IPX__LoadAndSendSnapshot PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Processor.cs">
+    <Files>
+      <File FileName="Program.cs" Line="46" Column="9" />
+      <File FileName="CommonMethods.cs" Line="12" Column="49" />
+      <File FileName="Processor.cs" Line="113" Column="26" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="IPX_LoadAndSendSnapshot" expanded="True">
+            <Node name="IPX_LoadAndSendSnapshot" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Processor.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
