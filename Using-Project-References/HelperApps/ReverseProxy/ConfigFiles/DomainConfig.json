@@ -1,0 +1,74 @@
+[
+    {
+        "Domains": [
+            "bennettcentral.net",
+            "www.bennettcentral.net"
+        ],
+        "TargetIp": "10.0.0.180",
+        "TargetPort": 8080,
+        "AllowedClientIps": [
+            "58.168.254.172",
+            "203.89.195.2",
+            "203.89.195.1"
+        ],
+        "AllowedPaths": [
+            "/",
+            "/home",
+            "/about"
+        ]
+    },
+    {
+        "Domains": [
+            "jamcorc.com",
+            "www.jamcorc.com"
+        ],
+        "TargetIp": "10.0.0.180",
+        "TargetPort": 8082,
+        "AllowedClientIps": [
+            "58.168.254.172",
+            "203.89.195.2",
+            "203.89.195.1"
+        ],
+        "AllowedPaths": [
+            "/",
+            "/home",
+            "/about"
+        ]
+    },
+    {
+        "Domains": [
+            "softwarecustomisedsolutions.com",
+            "www.softwarecustomisedsolutions.com"
+        ],
+        "TargetIp": "10.0.0.180",
+        "TargetPort": 8083,
+        "AllowedClientIps": [
+            "58.168.254.172",
+            "203.89.195.2",
+            "203.89.195.1"
+        ],
+        "AllowedPaths": [
+            "/",
+            "/home",
+            "/about"
+        ]
+    },
+    {
+        "Domains": [
+            "softwarecustomisedsolutions.net",
+            "www.softwarecustomisedsolutions.net"
+        ],
+        "TargetIp": "10.0.0.180",
+        "TargetPort": 8199,
+        "AllowedPaths": [],
+        "AllowedClientIps": [
+            "58.168.254.172",
+            "203.89.195.2",
+            "203.89.195.1",
+            "60.241.83.11"
+        ],
+        "AllowedClientRanges": [
+            "000.89.195.2/28"
+        ]
+    }
+]
