@@ -1,0 +1,1 @@
+MailKitEmailProcessor /SmtpServer:"smtp-relay.brevo.com" /SmtpPort:587 /EmailUserName:goatpropertymanager@gmail.com /EmailPassword:qDNvW9fKGUpJQrF6 /UseSSL:True /UseTLS:True /FromAddress:"ddenardo01@gmail.com" /ToAddress:"johnebennett_au@yahoo.com.au" /Subject:"This is a test" /SenderName:"John Bennett" /RecipientName:"John Bennett"

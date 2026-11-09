@@ -1,0 +1,17 @@
+﻿{
+    "ShareCreateDocsLocation": "\\\\BackupServer\\CreateDocs\\",
+    "ShareWordLocation": "\\\\BackupServer\\CreateDocs\\",
+    "ShareTestRPOLocation": "\\\\BackupServer\\CreateDocs\\",
+
+    "LocalCreateDocsLocation": "E:\\CreateDocs\\",
+    "LocalDocsLocation": "e:\\EAOffice\\Docs\\",
+    "LocalWordLocation": "E:\\CreateDocs\\",
+    "LocalTestRPOLocation": "E:\\CreateDocs\\",
+
+    "RetryCount": "300",
+    "SendEmail": "N",
+    "UpdateSentValues": "N",
+    "ShareDir": "\\\\BackupServer\\CreateDocs\\",
+
+    "RunningOnEmailServer": "Y"
+}

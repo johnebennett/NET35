@@ -1,0 +1,2 @@
+delete EmailProcessorHtml.exe
+copy MailKitEmailProcessor.exe EmailProcessorHtml.exe

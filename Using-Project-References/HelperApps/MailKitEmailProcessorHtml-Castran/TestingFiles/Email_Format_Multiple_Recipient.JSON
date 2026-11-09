@@ -1,0 +1,30 @@
+{
+    "SmtpServer": "smtp-relay.brevo.com",
+    "SmtpPort": "587",
+    "SmtpUserName": "goatpropertymanager@gmail.com",
+    "SmtpPassword": "qDNvW9fKGUpJQrF6",
+    "UseSSL": "true",
+    "UseTLS": "true",
+    "Subject": "Test Email Content",
+    "EmailBody": {
+        "Content": "",
+        "FileName": ""
+    },
+    "FromAddress": "johnebennett_au@yahoo.com.au",
+    "SenderName": "John Bennett",
+    "Recipients": [
+        {
+            "Name": "Some_Random",
+            "Address": "johnebennett_au@yahoo.com.au"
+        },
+        {
+            "Name": "Some_Random",
+            "Address": "bennettcentral@gmail.com"
+        }
+    ],
+    "Attachments": [
+      {
+        "FileName": ""
+      }
+    ]
+}
