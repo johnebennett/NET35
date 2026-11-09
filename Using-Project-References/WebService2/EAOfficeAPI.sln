@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 5.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAOfficeAPI", "EAOfficeAPI.csproj", "{FBD2BA68-9FE0-4B3F-80C7-0B1334E5809A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestProcessor", "RequestProcessor\RequestProcessor.csproj", "{9225BF9B-950C-4A87-96DC-7FE6AA3A5F92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleHost", "ConsoleHost\ConsoleHost.csproj", "{5211EA78-2CB5-4364-8884-9E8995E9A79C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleConsumer", "ConsoleConsumer\ConsoleConsumer.csproj", "{D12F0492-71A7-4BB9-B3DD-5DE005C265E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBD2BA68-9FE0-4B3F-80C7-0B1334E5809A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBD2BA68-9FE0-4B3F-80C7-0B1334E5809A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBD2BA68-9FE0-4B3F-80C7-0B1334E5809A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBD2BA68-9FE0-4B3F-80C7-0B1334E5809A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9225BF9B-950C-4A87-96DC-7FE6AA3A5F92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9225BF9B-950C-4A87-96DC-7FE6AA3A5F92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9225BF9B-950C-4A87-96DC-7FE6AA3A5F92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9225BF9B-950C-4A87-96DC-7FE6AA3A5F92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5211EA78-2CB5-4364-8884-9E8995E9A79C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5211EA78-2CB5-4364-8884-9E8995E9A79C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5211EA78-2CB5-4364-8884-9E8995E9A79C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5211EA78-2CB5-4364-8884-9E8995E9A79C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D12F0492-71A7-4BB9-B3DD-5DE005C265E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D12F0492-71A7-4BB9-B3DD-5DE005C265E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D12F0492-71A7-4BB9-B3DD-5DE005C265E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D12F0492-71A7-4BB9-B3DD-5DE005C265E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
