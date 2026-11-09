@@ -1,0 +1,29 @@
+<Properties StartupConfiguration="{7D611FCF-C27C-4BE4-BBA1-FE73EFC0BBE7}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FileSettingsItem.cs">
+    <Files>
+      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="MainForm.cs" Line="97" Column="55" />
+      <File FileName="FileSettingsItem.cs" Line="318" Column="96" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MakeItemClasses" expanded="True">
+            <Node name="MakeItemClasses" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="FileSettingsItem.cs" selected="True" />
+              <Node name="MainForm.cs" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.MakeItemClasses PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
