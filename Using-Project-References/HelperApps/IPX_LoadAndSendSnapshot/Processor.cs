@@ -178,7 +178,8 @@ namespace IPX_App
             int CompanyIdValue = CommonUtilities.StringUtilities.StrToIntDef(CompanyId, 0);
             if (string.IsNullOrEmpty(Result))
             {
-                DocsLocation = CommonUtilities.FolderHelpers.DocsLocation(FConnectionString, CompanyIdValue, out Result);
+                //DocsLocation = CommonUtilities.FolderHelpers.DocsLocation(FConnectionString, CompanyIdValue, out Result);
+                DocsLocation = UsefulDBMethods.CompanyFolderSettings.DocsLocation(FConnectionString, CompanyIdValue, out Result);
                 CommonMethods.WriteToOutput(CompanyId, "DocsLocation: " + DocsLocation);
             }
 
