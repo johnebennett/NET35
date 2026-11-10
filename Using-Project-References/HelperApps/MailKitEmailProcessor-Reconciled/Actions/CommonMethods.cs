@@ -162,8 +162,8 @@ namespace MailKitEmailProcessor.Actions
 	        //xxx
 	        string SmtpServer = "";
 	        int SmtpPort = 0;
-	        bool UseSSL = true;
-	        bool UseTls = true;
+	        //bool UseSSL = true;
+	        //bool UseTls = true;
 	        string EmailUserName = "";
 	        string EmailPassword = "";
 		    CancellationTokenSource source = new CancellationTokenSource();
@@ -590,13 +590,13 @@ namespace MailKitEmailProcessor.Actions
         public static List<string> ParseEmailBody(string EmailBody)
         {
             List<string> Result = new List<string>();
-            string Method = "ParseEmailBody";
+            //string Method = "ParseEmailBody";
 
             ActionBase ActionBase = new ActionBase();
             try
             {
-                int StartPos = 0;
-                int EndPos = 0;
+                //int StartPos = 0;
+                //int EndPos = 0;
                 Regex reg = new Regex("{{(.|\\n)*?}}");
 
                 string Str = "";
@@ -626,7 +626,7 @@ namespace MailKitEmailProcessor.Actions
                 }
             */
             }
-            catch (Exception Ex)
+            catch (Exception)
             {
                 //Result = ActionBase.LogOnException(Method, Ex, "");
             }

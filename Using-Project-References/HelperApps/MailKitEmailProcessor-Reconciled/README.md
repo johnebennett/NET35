@@ -14,7 +14,7 @@ Use Visual Studio/MSBuild with the .NET Framework 4.5.2 targeting pack:
 msbuild MailKitEmailProcessor.sln /t:Build /p:Configuration=Release
 ```
 
-Output: `bin/Release/MailKitEmailProcessor.exe`. The project retains the original assembly name, AnyCPU/prefer-32-bit settings, and version-generation convention. Checked arithmetic is enabled for both configurations to preserve overflow behavior seen in production. Dependency DLLs from the supplied source tree are in `lib/`, with project references pointing there; they are explicitly included by `.gitignore` exceptions.
+Output: `bin/Release/MailKitEmailProcessor.exe`. The project retains the original assembly name, AnyCPU/prefer-32-bit settings, and version-generation convention. Checked arithmetic is enabled for both configurations to preserve overflow behavior seen in production. ActionBase, CommonUtilities, ProgressLogging, and UsefulDBMethods use project references to `../../API/CoreAssemblies`. Third-party references use the shared `../../packages` assets, with pinned versions in `packages.config`. The original `lib/` files are retained.
 
 ## Reconciled behavior
 
@@ -56,3 +56,7 @@ The checks exercise account validation/copying, sender and reply-to copying, con
 
 See `RECONCILIATION.md` for comparison evidence and validation limitations.
 
+
+## Dependency migration limitation
+
+MimeKit/MailKit 3.0.0 require System.Buffers 4.5.1 and Portable.BouncyCastle 1.9.0. BouncyCastle uses the compatible net40 package asset. System.Buffers is recorded in packages.config, but no runtime reference is added: the shared package has a net45 reference assembly only; its runtime assets target net461 or .NET Standard. A compatible runtime dependency set for .NET Framework 4.5.2 remains unresolved. Do not deploy the reference assembly or substitute the net461 DLL without a separately approved framework change. SMTP operation has not been validated.

@@ -72,7 +72,7 @@ namespace MailKitEmailProcessor.Actions
 			
 			JObject JsonSource = null;
 			string Path = "";
-			string Str = "";
+			//string Str = "";
 			
 			if (string.IsNullOrEmpty(Result))
 			{

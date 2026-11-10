@@ -15,7 +15,7 @@ using MimeKit;
 using MailKit.Net.Smtp;
 using MimeKit.Utils;
 using System.Threading;
-using System.Net;
+//using System.Net;
 
 namespace MailKitEmailProcessor.Actions
 {

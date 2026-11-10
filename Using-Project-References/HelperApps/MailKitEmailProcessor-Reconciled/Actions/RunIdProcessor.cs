@@ -40,8 +40,8 @@ namespace MailKitEmailProcessor.Actions
 		
 		private SendEmailParam SendEmailParam;
 		
-		private string m_EmailBodyContent = "";
-		private string m_EmailBodyFileName = "";
+		//private string m_EmailBodyContent = "";
+		//private string m_EmailBodyFileName = "";
 		private string m_UniqueFileId = "";
 		private int m_RunId = 0;
 
@@ -208,7 +208,7 @@ namespace MailKitEmailProcessor.Actions
 			List<Actions.SendEmail_Recipient> ExclusionList = new List<Actions.SendEmail_Recipient>();
 			*/
             string TempSubjectLine = "";
-			string SenderAddress = "";
+			//string SenderAddress = "";
 			Int64 TemplateId = 0;
 			Int64 StatementSummaryId = 0;
 			List<EmailAttachment> CommonAttachments = new List<EmailAttachment>();
@@ -1751,7 +1751,7 @@ namespace MailKitEmailProcessor.Actions
                                               Int64 TemplateId,
                                               Int64 ClientId)
         {
-            string Result = "";
+            //string Result = "";
             string Str = "";
             List<string> StrList = new List<string>();
             StringBuilder Request = new StringBuilder();
