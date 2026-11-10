@@ -235,7 +235,7 @@ namespace EAOfficeAPI
 			Content = "";
 			ErrorMsg = "";
 			NewRecordId = 0;
-			string MethodName = "BuildContentAndLog";
+			//string MethodName = "BuildContentAndLog";
 			
 			string ConnectionString = "";
 			if (!string.IsNullOrEmpty(ErrorMsg)) return false;
