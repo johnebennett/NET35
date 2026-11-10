@@ -1,0 +1,23 @@
+{
+  "EmailProcessorHtml.exe": "cbc1c7b5ace9ba5f7af4842f70d8a08fb40e4f2329a25378ae99647dfe4b5721",
+  "MailKit_EmailProcessorHtml-main/Processor.cs": "99ad4b4771740220117054db1f34c97bc93794c79e79d9c3a90761ba0e92e93b",
+  "MailKit_EmailProcessorHtml-main/Program.cs": "1f9f49eb6ef90bc4f69d9e2eca81b8ea75543d061a5f73cc6f3fdd2db76a9608",
+  "MailKit_EmailProcessorHtml-main/Actions/CommonClasses.cs": "e77776a18949c3d2017d9a1d10f5ac0ba97844ea841a42c029453722486db356",
+  "MailKit_EmailProcessorHtml-main/Actions/CommonMethods.cs": "083f1843a721dfbbd977cee28ea223d401dc5bd8fdd3dea22d08e814c420a3a3",
+  "MailKit_EmailProcessorHtml-main/Actions/EmailItems.cs": "d8dfbee926f6d27a6e5fa68e41dfff1c65b1c8c16c2b631ec468b798d7685565",
+  "MailKit_EmailProcessorHtml-main/Actions/FileNameProcessor - Copy.cs": "b692c59f9717ca2532385f76909ebb1a80df17f2770011f24526180a5c645c2c",
+  "MailKit_EmailProcessorHtml-main/Actions/FileNameProcessor.cs": "b5bf1dbd2c0c96d8fae23ac87d653e0ac81be4b18ac98ecc6b27418542f7faf1",
+  "MailKit_EmailProcessorHtml-main/Actions/RunIdProcessor.cs": "21eaa9ef23f295006a46867d8376314b037e8a8d09817be3f7d66b64e782de96",
+  "MailKit_EmailProcessorHtml-main/Actions/SendEmail.cs": "a6b7833a4768937e1c6e3b45e48887869424fa6b9306a6511a6b8510bc445648",
+  "MailKitEmailProcessor-Reconciled/lib/ActionBase.dll": "11640f9a4371a4d871328c831c4d560051446e0f3077d510553483fc9bd47014",
+  "MailKitEmailProcessor-Reconciled/lib/CommonUtilities.dll": "71e7dbf2e466e9284ece0173cd7f750432a82b29bcac79a761913934642c3a7f",
+  "MailKitEmailProcessor-Reconciled/lib/EAOfficeAPI.dll": "5090407555c2b2a3a95b1ed646f094caf61787c68a9b4ade7120df147c209680",
+  "MailKitEmailProcessor-Reconciled/lib/HtmlAgilityPack.dll": "1a0fc4960c30b7acd9bddb9c5999e3b75b4bacf78632b45ad38db254214c2b27",
+  "MailKitEmailProcessor-Reconciled/lib/MailKit.dll": "5f466c2d857ebde7c8e5ba3f5a3b5777313bf804a1e3f4983de77ce413c55294",
+  "MailKitEmailProcessor-Reconciled/lib/MimeKit.dll": "5045fd9701521b8fdbb5336516ca4de56ecb4bd702f959de29621bda7564b17a",
+  "MailKitEmailProcessor-Reconciled/lib/Newtonsoft.Json.dll": "c403af8f4ec9836b09a06dbcc9e26ef65c294aeab7f82a866c185c41909247cc",
+  "MailKitEmailProcessor-Reconciled/lib/ProgressLogging.dll": "2133380126660480da46942e2e34639d97b275db80dfdf8991f271e12eb984f3",
+  "MailKitEmailProcessor-Reconciled/lib/UsefulDBMethods.dll": "eedc025f43ae026f449869b3f8a65037bc0430746ca6f3c3eb3296f111ad3e21",
+  "MailKitEmailProcessor-Reconciled/bin/Release/MailKitEmailProcessor.exe": "5f2ab18255a818928a77ef3ba854a62d8e23487b0e9c0f46ebfd8d881c54ef7e",
+  "MailKitEmailProcessor-Reconciled/bin/Debug/MailKitEmailProcessor.exe": "dc99a940958d5a3f4329f4c2b40855d706da89a03fde0c47758d3fa75d84b43c"
+}

@@ -1,0 +1,14 @@
+{
+  "ShareCreateDocsLocation": "C:\\EmailProcessorExample\\Share\\CreateDocs\\",
+  "ShareWordLocation": "C:\\EmailProcessorExample\\Share\\Word\\",
+  "ShareTestRPOLocation": "C:\\EmailProcessorExample\\Share\\TestRPO\\",
+  "RetryCount": 300,
+  "ShareDir": "C:\\EmailProcessorExample\\Share\\",
+  "LocalCreateDocsLocation": "C:\\EmailProcessorExample\\Local\\CreateDocs\\",
+  "LocalDocsLocation": "C:\\EmailProcessorExample\\Local\\Docs\\",
+  "LocalWordLocation": "C:\\EmailProcessorExample\\Local\\Word\\",
+  "LocalTestRPOLocation": "C:\\EmailProcessorExample\\Local\\TestRPO\\",
+  "SendEmail": "N",
+  "UpdateSentValues": "N",
+  "RunningOnEmailServer": "N"
+}
