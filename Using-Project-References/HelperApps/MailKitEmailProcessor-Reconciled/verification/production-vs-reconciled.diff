@@ -1,0 +1,545 @@
+--- production/MailKitEmailProcessor/Processor.cs
++++ reconciled-debug/MailKitEmailProcessor/Processor.cs
+@@ -24,23 +24,26 @@
+ 				mimeMessage.To.Add(new MailboxAddress(recipient.Name, recipient.Address));
+ 			}
+ 			mimeMessage.Subject = EmailItems.Subject;
+-			TextPart textPart = new TextPart("plain");
+-			textPart.Text = "Hello, this is the text part of the email.";
+-			TextPart textPart2 = textPart;
+-			TextPart textPart3 = new TextPart("html");
+-			textPart3.Text = "<html><body><p>Hello, this is the HTML part of the email.</p><img src='cid:logo'></body></html>";
+-			TextPart textPart4 = textPart3;
++			TextPart textPart = new TextPart("plain")
++			{
++				Text = "Hello, this is the text part of the email."
++			};
++			TextPart textPart2 = new TextPart("html")
++			{
++				Text = "<html><body><p>Hello, this is the HTML part of the email.</p><img src='cid:logo'></body></html>"
++			};
+ 			Multipart multipart = new Multipart("mixed");
+-			multipart.Add(textPart4);
+-			MimePart mimePart = new MimePart("image", "png");
+-			mimePart.Content = new MimeContent(File.OpenRead("logo.png"));
+-			mimePart.ContentDisposition = new ContentDisposition("inline");
+-			mimePart.ContentTransferEncoding = ContentEncoding.Base64;
+-			mimePart.FileName = Path.GetFileName("logo.png");
+-			MimePart mimePart2 = mimePart;
+-			mimePart2.ContentId = MimeUtils.GenerateMessageId();
+-			textPart4.Text = textPart4.Text.Replace("cid:logo", "cid:" + mimePart2.ContentId);
+-			multipart.Add(mimePart2);
++			multipart.Add(textPart2);
++			MimePart mimePart = new MimePart("image", "png")
++			{
++				Content = new MimeContent(File.OpenRead("logo.png")),
++				ContentDisposition = new ContentDisposition("inline"),
++				ContentTransferEncoding = ContentEncoding.Base64,
++				FileName = Path.GetFileName("logo.png")
++			};
++			mimePart.ContentId = MimeUtils.GenerateMessageId();
++			textPart2.Text = textPart2.Text.Replace("cid:logo", "cid:" + mimePart.ContentId);
++			multipart.Add(mimePart);
+ 			mimeMessage.Body = multipart;
+ 			try
+ 			{
+--- production/MailKitEmailProcessor.Actions/AccountDetails.cs
++++ reconciled-debug/MailKitEmailProcessor.Actions/AccountDetails.cs
+@@ -12,20 +12,24 @@
+ 
+ 		public string Password { get; set; }
+ 
++		public bool BypassAuthCheck { get; set; }
++
+ 		public AccountDetails()
+ 		{
+ 			Host = "";
+ 			Port = 0;
+ 			UserName = "";
+ 			Password = "";
++			BypassAuthCheck = false;
+ 		}
+ 
+-		public AccountDetails(string Host, int Port, string UserName, string Password)
++		public AccountDetails(string Host, int Port, string UserName, string Password, bool BypassAuthCheck = false)
+ 		{
+ 			this.Host = Host;
+ 			this.Port = Port;
+ 			this.UserName = UserName;
+ 			this.Password = Password;
++			this.BypassAuthCheck = BypassAuthCheck;
+ 		}
+ 
+ 		public string Display()
+@@ -44,11 +48,11 @@
+ 			{
+ 				text = "No Port number provided";
+ 			}
+-			if (string.IsNullOrEmpty(text) && string.IsNullOrEmpty(UserName))
++			if (!BypassAuthCheck && string.IsNullOrEmpty(text) && string.IsNullOrEmpty(UserName))
+ 			{
+ 				text = "Empty or invalid UserName provided";
+ 			}
+-			if (string.IsNullOrEmpty(text) && string.IsNullOrEmpty(Password))
++			if (!BypassAuthCheck && string.IsNullOrEmpty(text) && string.IsNullOrEmpty(Password))
+ 			{
+ 				text = "Empty or invalid Password provided";
+ 			}
+@@ -64,6 +68,7 @@
+ 				Port = Source.Port;
+ 				UserName = Source.UserName;
+ 				Password = Source.Password;
++				BypassAuthCheck = Source.BypassAuthCheck;
+ 			}
+ 			catch (Exception ex)
+ 			{
+--- production/MailKitEmailProcessor.Actions/CommonMethods.cs
++++ reconciled-debug/MailKitEmailProcessor.Actions/CommonMethods.cs
+@@ -46,11 +46,6 @@
+ 			}
+ 		}
+ 
+-		public static void WriteToOutputLog(long RunId, string LineText)
+-		{
+-			WriteToOutputLog(Convert.ToInt32(RunId), LineText);
+-		}
+-
+ 		public static string GetExecutingAssemblyPath()
+ 		{
+ 			string localPath = new Uri(Assembly.GetExecutingAssembly().GetName().CodeBase).LocalPath;
+@@ -78,23 +73,6 @@
+ 		public static void WriteParamsToOutput(int UniqueFileId, string QueryText, List<FbParameterItem> Params)
+ 		{
+ 			WriteParamsToOutput(Convert.ToString(UniqueFileId), QueryText, Params);
+-		}
+-
+-		public static void WriteParamsToOutputLog(long RunId, string QueryText, List<FbParameterItem> Params)
+-		{
+-			WriteParamsToOutputLog(Convert.ToInt32(RunId), QueryText, Params);
+-		}
+-
+-		public static void WriteParamsToOutputLog(int RunId, string QueryText, List<FbParameterItem> Params)
+-		{
+-			StringBuilder stringBuilder = new StringBuilder();
+-			stringBuilder.AppendLine("QueryText:");
+-			stringBuilder.AppendLine(QueryText);
+-			foreach (FbParameterItem Param in Params)
+-			{
+-				stringBuilder.AppendLine(Param.ParameterName + ": " + Convert.ToString(Param.ParameterValue));
+-			}
+-			WriteToOutputLog(RunId, stringBuilder.ToString());
+ 		}
+ 
+ 		public static void WriteToOutput(string UniqueFileId, string LineText)
+@@ -194,14 +172,15 @@
+ 				{
+ 					buffer = File.ReadAllBytes(attributeValue);
+ 				}
+-				MimePart mimePart = new MimePart("image", "jpeg");
+-				mimePart.Content = new MimeContent(new MemoryStream(buffer));
+-				mimePart.ContentDisposition = new ContentDisposition("inline");
+-				mimePart.ContentTransferEncoding = ContentEncoding.Base64;
+-				MimePart mimePart2 = mimePart;
+-				mimePart2.ContentId = MimeUtils.GenerateMessageId();
+-				item.SetAttributeValue("src", "cid:" + mimePart2.ContentId);
+-				imageMimeParts.Add(mimePart2);
++				MimePart mimePart = new MimePart("image", "jpeg")
++				{
++					Content = new MimeContent(new MemoryStream(buffer)),
++					ContentDisposition = new ContentDisposition("inline"),
++					ContentTransferEncoding = ContentEncoding.Base64
++				};
++				mimePart.ContentId = MimeUtils.GenerateMessageId();
++				item.SetAttributeValue("src", "cid:" + mimePart.ContentId);
++				imageMimeParts.Add(mimePart);
+ 			}
+ 			return htmlDocument.DocumentNode.OuterHtml;
+ 		}
+@@ -216,12 +195,13 @@
+ 
+ 		private static MimePart CreateAttachment(string filePath)
+ 		{
+-			MimePart mimePart = new MimePart("application", "octet-stream");
+-			mimePart.Content = new MimeContent(File.OpenRead(filePath));
+-			mimePart.ContentDisposition = new ContentDisposition("attachment");
+-			mimePart.ContentTransferEncoding = ContentEncoding.Base64;
+-			mimePart.FileName = Path.GetFileName(filePath);
+-			return mimePart;
++			return new MimePart("application", "octet-stream")
++			{
++				Content = new MimeContent(File.OpenRead(filePath)),
++				ContentDisposition = new ContentDisposition("attachment"),
++				ContentTransferEncoding = ContentEncoding.Base64,
++				FileName = Path.GetFileName(filePath)
++			};
+ 		}
+ 
+ 		public static string ValidateEmailAddress(string EmailAddress)
+@@ -605,7 +585,8 @@
+ 				text3 = Path.Combine(localCreateDocsLocation, item, CompanyClientId.ToString());
+ 				string[] files = Directory.GetFiles(text2, "*.*");
+ 				string[] array = files;
+-				foreach (string text7 in array)
++				string[] array2 = array;
++				foreach (string text7 in array2)
+ 				{
+ 					WriteToOutputLog(RunId, "Processing the file: " + text7);
+ 					text6 = Path.GetFileName(text7);
+@@ -629,5 +610,27 @@
+ 			}
+ 			return text;
+ 		}
++
++		public static void WriteToOutputLog(long RunId, string LineText)
++		{
++			WriteToOutputLog(Convert.ToInt32(RunId), LineText);
++		}
++
++		public static void WriteParamsToOutputLog(long RunId, string QueryText, List<FbParameterItem> Params)
++		{
++			WriteParamsToOutputLog(Convert.ToInt32(RunId), QueryText, Params);
++		}
++
++		public static void WriteParamsToOutputLog(int RunId, string QueryText, List<FbParameterItem> Params)
++		{
++			StringBuilder stringBuilder = new StringBuilder();
++			stringBuilder.AppendLine("QueryText:");
++			stringBuilder.AppendLine(QueryText);
++			foreach (FbParameterItem Param in Params)
++			{
++				stringBuilder.AppendLine(Param.ParameterName + ": " + Convert.ToString(Param.ParameterValue));
++			}
++			WriteToOutputLog(RunId, stringBuilder.ToString());
++		}
+ 	}
+ }
+--- production/MailKitEmailProcessor.Actions/FileNameProcessor.cs
++++ reconciled-debug/MailKitEmailProcessor.Actions/FileNameProcessor.cs
+@@ -152,16 +152,16 @@
+ 				{
+ 					foreach (JObject item3 in jToken.Children())
+ 					{
+-						NameAndAddressItem nameAndAddressItem = new NameAndAddressItem();
+-						nameAndAddressItem.Name = JsonUtilities.GetJsonPathValueStr(item3, "$.Name", out Res);
+-						if (string.IsNullOrEmpty(Res))
+-						{
+-							nameAndAddressItem.Address = JsonUtilities.GetJsonPathValueStr(item3, "$.Address", out Res);
+-							Console.WriteLine("Recipient-Name: " + nameAndAddressItem.Name);
+-						}
+-						if (string.IsNullOrEmpty(Res))
+-						{
+-							SendEmailParam.CCRecipients.Add(nameAndAddressItem);
++						NameAndAddressItem nameAndAddressItem2 = new NameAndAddressItem();
++						nameAndAddressItem2.Name = JsonUtilities.GetJsonPathValueStr(item3, "$.Name", out Res);
++						if (string.IsNullOrEmpty(Res))
++						{
++							nameAndAddressItem2.Address = JsonUtilities.GetJsonPathValueStr(item3, "$.Address", out Res);
++							Console.WriteLine("Recipient-Name: " + nameAndAddressItem2.Name);
++						}
++						if (string.IsNullOrEmpty(Res))
++						{
++							SendEmailParam.CCRecipients.Add(nameAndAddressItem2);
+ 						}
+ 					}
+ 				}
+@@ -178,16 +178,16 @@
+ 				{
+ 					foreach (JObject item4 in jToken.Children())
+ 					{
+-						NameAndAddressItem nameAndAddressItem = new NameAndAddressItem();
+-						nameAndAddressItem.Name = JsonUtilities.GetJsonPathValueStr(item4, "$.Name", out Res);
+-						if (string.IsNullOrEmpty(Res))
+-						{
+-							nameAndAddressItem.Address = JsonUtilities.GetJsonPathValueStr(item4, "$.Address", out Res);
+-							Console.WriteLine("Recipient-Name: " + nameAndAddressItem.Name);
+-						}
+-						if (string.IsNullOrEmpty(Res))
+-						{
+-							SendEmailParam.BCCRecipients.Add(nameAndAddressItem);
++						NameAndAddressItem nameAndAddressItem3 = new NameAndAddressItem();
++						nameAndAddressItem3.Name = JsonUtilities.GetJsonPathValueStr(item4, "$.Name", out Res);
++						if (string.IsNullOrEmpty(Res))
++						{
++							nameAndAddressItem3.Address = JsonUtilities.GetJsonPathValueStr(item4, "$.Address", out Res);
++							Console.WriteLine("Recipient-Name: " + nameAndAddressItem3.Name);
++						}
++						if (string.IsNullOrEmpty(Res))
++						{
++							SendEmailParam.BCCRecipients.Add(nameAndAddressItem3);
+ 						}
+ 					}
+ 				}
+--- production/MailKitEmailProcessor.Actions/RunIdProcessor.cs
++++ reconciled-debug/MailKitEmailProcessor.Actions/RunIdProcessor.cs
+@@ -20,6 +20,10 @@
+ 	{
+ 		private SendEmailParam SendEmailParam;
+ 
++		private string m_EmailBodyContent = "";
++
++		private string m_EmailBodyFileName = "";
++
+ 		private string m_UniqueFileId = "";
+ 
+ 		private int m_RunId = 0;
+@@ -34,21 +38,21 @@
+ 
+ 		private string m_DocsLocation = "e:\\EAOffice\\Development\\Docs\\";
+ 
++		private string m_RTFFileName = "";
++
+ 		private string m_EAOWordLocation = "E:\\CreateDocs\\";
+ 
+ 		private string m_TestRPOLocation = "E:\\CreateDocs\\";
+ 
++		private int m_MasterId = 0;
++
++		private string m_WorkingDir = "";
++
+ 		private int m_RetryCount = 300;
+ 
+ 		private string ShareDir = "";
+ 
+ 		private ConfigSettings m_ConfigSettings;
+-
+-		private int m_MasterId = 0;
+-
+-		private string m_WorkingDir = "";
+-
+-		private string m_RTFFileName = "";
+ 
+ 		private long m_CompanyClientId = 0L;
+ 
+@@ -329,9 +333,9 @@
+ 							ErrorMsg = UpdateClientEmailAddressItems(m_CompanyClientId, num, SendEmailParam.Recipients);
+ 						}
+ 						text2 = m_DocsLocation + Convert.ToString(m_RunId) + "_" + Convert.ToString(num2) + "_UnadulteratedEmailBody.json";
+-						using (TextWriter textWriter = new StreamWriter(text2))
+-						{
+-							textWriter.Write(SendEmailParam.EmailBody);
++						using (TextWriter textWriter2 = new StreamWriter(text2))
++						{
++							textWriter2.Write(SendEmailParam.EmailBody);
+ 						}
+ 						List<string> list4 = CommonMethods.ParseEmailBody(SendEmailParam.EmailBody);
+ 						WriteToOutput("Merge Fields");
+@@ -341,19 +345,19 @@
+ 						}
+ 						if (string.IsNullOrEmpty(ErrorMsg) && TemplateId > 0)
+ 						{
+-							string EmailBody = "";
++							string EmailBody2 = "";
+ 							text4 = "";
+ 							WriteToOutput("TemplateId: " + TemplateId);
+-							ErrorMsg = BuildClientEmailBody(m_CompanyClientId, m_RunId, num, num2, TemplateId, out EmailBody, out text4);
++							ErrorMsg = BuildClientEmailBody(m_CompanyClientId, m_RunId, num, num2, TemplateId, out EmailBody2, out text4);
+ 							WriteToOutput("Result: " + ErrorMsg);
+ 							if (string.IsNullOrEmpty(ErrorMsg))
+ 							{
+-								SendEmailParam.EmailBody = EmailBody;
++								SendEmailParam.EmailBody = EmailBody2;
+ 							}
+ 							text2 = m_DocsLocation + Convert.ToString(m_RunId) + "_" + Convert.ToString(num2) + "_EmailBody.txt";
+-							using (TextWriter textWriter = new StreamWriter(text2))
++							using (TextWriter textWriter3 = new StreamWriter(text2))
+ 							{
+-								textWriter.Write(EmailBody);
++								textWriter3.Write(EmailBody2);
+ 							}
+ 							WriteToOutput("EmailBody in File: " + text2);
+ 							WriteToOutput("Global SubjectLine: " + SendEmailParam.Subject + " Attachment Subject Line: " + text4);
+@@ -374,9 +378,9 @@
+ 							if (string.IsNullOrEmpty(ErrorMsg))
+ 							{
+ 								text2 = m_DocsLocation + Convert.ToString(m_RunId) + "_" + Convert.ToString(num2) + "_Request.json";
+-								using (TextWriter textWriter = new StreamWriter(text2))
++								using (TextWriter textWriter4 = new StreamWriter(text2))
+ 								{
+-									textWriter.Write(Request.ToString());
++									textWriter4.Write(Request.ToString());
+ 								}
+ 							}
+ 						}
+@@ -400,17 +404,17 @@
+ 						}
+ 						if (string.IsNullOrEmpty(ErrorMsg))
+ 						{
+-							string EmailBody2 = SendEmailParam.EmailBody;
++							string EmailBody3 = SendEmailParam.EmailBody;
+ 							List<EmailBodyImage> Images = new List<EmailBodyImage>();
+ 							if (string.IsNullOrEmpty(ErrorMsg) && !string.IsNullOrEmpty(SendEmailParam.EmailBody))
+ 							{
+-								ErrorMsg = CommonMethods.ProcessEmailBody(ref EmailBody2, ref Images);
++								ErrorMsg = CommonMethods.ProcessEmailBody(ref EmailBody3, ref Images);
+ 								Console.WriteLine("After ProcessEmailBody Result:");
+ 								Console.WriteLine(ErrorMsg);
+ 								if (string.IsNullOrEmpty(ErrorMsg))
+ 								{
+ 									SendEmailParam.EmailBodyImages = Images;
+-									SendEmailParam.EmailBody = EmailBody2;
++									SendEmailParam.EmailBody = EmailBody3;
+ 								}
+ 							}
+ 							WriteToOutput("Body After Processing");
+@@ -562,7 +566,7 @@
+ 		private string PopulateEmailSettings(long CompanyClientId, ref AccountDetails AccountDetails)
+ 		{
+ 			string result = "";
+-			string queryText = " SELECT CO_EMAILHOST, I_CO_EMAILPORT, CO_EMAILUSERNAME, CO_EMAILPASSWORD FROM EACompanySettings WHERE I_SETTINGS_COMPANYID = @CompanyClientId";
++			string queryText = " SELECT CO_EMAILHOST, I_CO_EMAILPORT, CO_EMAILUSERNAME, CO_EMAILPASSWORD, BYPASSAUTHCHECK FROM EACompanySettings WHERE I_SETTINGS_COMPANYID = @CompanyClientId";
+ 			List<FbParameterItem> list = new List<FbParameterItem>();
+ 			list.Add(new FbParameterItem("CompanyClientId", CompanyClientId));
+ 			Helpers.WriteParamsToInfoEvent(queryText, list, "PopulateEmailSettings", 0);
+@@ -581,6 +585,8 @@
+ 					AccountDetails.UserName = ((obj == DBNull.Value) ? "" : Convert.ToString(obj));
+ 					obj = row["CO_EMAILPASSWORD"];
+ 					AccountDetails.Password = ((obj == DBNull.Value) ? "" : Convert.ToString(obj));
++					obj = row["BYPASSAUTHCHECK"];
++					AccountDetails.BypassAuthCheck = obj != DBNull.Value && Convert.ToBoolean(obj);
+ 				}
+ 			}
+ 			else
+@@ -660,7 +666,7 @@
+ 					{
+ 						obj = row["StatementSummaryId"];
+ 						num = ((obj == DBNull.Value) ? 0 : Convert.ToInt64(obj));
+-						if (StatementSummaryId == 0 && num > 0)
++						if (StatementSummaryId == 0L && num > 0)
+ 						{
+ 							StatementSummaryId = num;
+ 						}
+@@ -712,7 +718,10 @@
+ 			}
+ 			catch (Exception ex)
+ 			{
+-				Content = ex.Message + Environment.NewLine + ex.InnerException;
++				string message = ex.Message;
++				string newLine = Environment.NewLine;
++				Exception innerException = ex.InnerException;
++				Content = message + newLine + ((innerException != null) ? innerException.ToString() : null);
+ 			}
+ 			return Content;
+ 		}
+@@ -943,7 +952,7 @@
+ 						string arg = ((obj == DBNull.Value) ? "" : Convert.ToString(obj));
+ 						obj = row["StatementSummaryId"];
+ 						long num = ((obj == DBNull.Value) ? 0 : Convert.ToInt64(obj));
+-						if (StatementSummaryId == 0 && num > 0)
++						if (StatementSummaryId == 0L && num > 0)
+ 						{
+ 							StatementSummaryId = num;
+ 						}
+@@ -1030,12 +1039,12 @@
+ 				}
+ 				obj = row["CCAddress"];
+ 				text = ((obj == DBNull.Value) ? "" : Convert.ToString(obj));
+-				array = text.Split(new string[1] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+-				foreach (string text2 in array)
++				string[] array2 = text.Split(new string[1] { ";" }, StringSplitOptions.RemoveEmptyEntries);
++				foreach (string text3 in array2)
+ 				{
+ 					nameAndAddressItem = new NameAndAddressItem();
+-					nameAndAddressItem.Address = text2;
+-					WriteToOutput("Adding CC Email Address - " + text2);
++					nameAndAddressItem.Address = text3;
++					WriteToOutput("Adding CC Email Address - " + text3);
+ 					CCList.Add(nameAndAddressItem);
+ 				}
+ 				obj = row["BCCAddress"];
+@@ -1048,12 +1057,12 @@
+ 				{
+ 					WriteToOutput("BCC - " + text);
+ 				}
+-				array = text.Split(new string[1] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+-				foreach (string text2 in array)
++				string[] array3 = text.Split(new string[1] { ";" }, StringSplitOptions.RemoveEmptyEntries);
++				foreach (string text4 in array3)
+ 				{
+ 					nameAndAddressItem = new NameAndAddressItem();
+-					nameAndAddressItem.Address = text2;
+-					WriteToOutput("Adding BCC Email Address - " + text2);
++					nameAndAddressItem.Address = text4;
++					WriteToOutput("Adding BCC Email Address - " + text4);
+ 					BCCList.Add(nameAndAddressItem);
+ 				}
+ 			}
+@@ -1115,9 +1124,9 @@
+ 			else
+ 			{
+ 				text2 = "SELECT FIRST 1 EVA_EmailBody AS EmailBody, '' AS SubjectLine FROM EAEventRun WHERE EVA_ID = @RunId";
+-				List<FbParameterItem> list = new List<FbParameterItem>();
+-				list.Add(new FbParameterItem("RunId", RunId));
+-				dataTable = FirebirdUtilities.GetFirstDataTable(m_ConnectionString, text2, list, 0);
++				List<FbParameterItem> list2 = new List<FbParameterItem>();
++				list2.Add(new FbParameterItem("RunId", RunId));
++				dataTable = FirebirdUtilities.GetFirstDataTable(m_ConnectionString, text2, list2, 0);
+ 			}
+ 			if (dataTable == null)
+ 			{
+--- production/MailKitEmailProcessor.Actions/SendEmail.cs
++++ reconciled-debug/MailKitEmailProcessor.Actions/SendEmail.cs
+@@ -73,8 +73,11 @@
+ 					Console.WriteLine("Before Connect Time: " + DateTime.Now.ToString("HH:mm:ss"));
+ 					smtpClient.Connect(AccountDetails.Host, AccountDetails.Port, SecureSocketOptions.StartTls, CancellationToken.None);
+ 					Console.WriteLine("After Connect Time: " + DateTime.Now.ToString("HH:mm:ss"));
+-					smtpClient.Authenticate(AccountDetails.UserName, AccountDetails.Password);
+-					Console.WriteLine("After Authenticate Time: " + DateTime.Now.ToString("HH:mm:ss"));
++					if (!AccountDetails.BypassAuthCheck)
++					{
++						smtpClient.Authenticate(AccountDetails.UserName, AccountDetails.Password);
++						Console.WriteLine("After Authenticate Time: " + DateTime.Now.ToString("HH:mm:ss"));
++					}
+ 					mimeMessage.To.Clear();
+ 					CommonMethods.WriteToOutputLog(RunId, "Recipient count inside Send - " + Recipients.Count);
+ 					foreach (NameAndAddressItem Recipient in Recipients)
+@@ -118,12 +121,13 @@
+ 			string result = "";
+ 			if (File.Exists(FileName))
+ 			{
+-				MimePart mimePart = new MimePart("application", "octet-stream");
+-				mimePart.Content = new MimeContent(File.OpenRead(FileName));
+-				mimePart.ContentDisposition = new ContentDisposition("attachment");
+-				mimePart.ContentTransferEncoding = ContentEncoding.Base64;
+-				mimePart.FileName = Path.GetFileName(FileName);
+-				MimePart entity = mimePart;
++				MimePart entity = new MimePart("application", "octet-stream")
++				{
++					Content = new MimeContent(File.OpenRead(FileName)),
++					ContentDisposition = new ContentDisposition("attachment"),
++					ContentTransferEncoding = ContentEncoding.Base64,
++					FileName = Path.GetFileName(FileName)
++				};
+ 				multipart.Add(entity);
+ 			}
+ 			else
+--- production/MailKitEmailProcessor.Actions/SendEmailParam.cs
++++ reconciled-debug/MailKitEmailProcessor.Actions/SendEmailParam.cs
+@@ -189,6 +189,7 @@
+ 				AccountDetails.Port = Source.Port;
+ 				AccountDetails.UserName = Source.UserName;
+ 				AccountDetails.Password = Source.Password;
++				AccountDetails.BypassAuthCheck = Source.BypassAuthCheck;
+ 			}
+ 			catch (Exception ex)
+ 			{
+--- production/Properties/AssemblyInfo.cs
++++ reconciled-debug/Properties/AssemblyInfo.cs
+@@ -4,12 +4,12 @@
+ using System.Runtime.InteropServices;
+ using System.Runtime.Versioning;
+ 
+-[assembly: AssemblyTrademark("")]
++[assembly: AssemblyTitle("MailKitEmailProcessor")]
++[assembly: AssemblyDescription("")]
++[assembly: AssemblyConfiguration("")]
++[assembly: AssemblyCompany("")]
+ [assembly: AssemblyProduct("MailKitEmailProcessor")]
+ [assembly: AssemblyCopyright("Copyright 2023")]
+-[assembly: AssemblyConfiguration("")]
++[assembly: AssemblyTrademark("")]
+ [assembly: ComVisible(false)]
+-[assembly: AssemblyCompany("")]
+-[assembly: AssemblyTitle("MailKitEmailProcessor")]
+-[assembly: AssemblyDescription("")]
+-[assembly: AssemblyVersion("1.0.9140.16598")]
++[assembly: AssemblyVersion("1.0.9763.37029")]

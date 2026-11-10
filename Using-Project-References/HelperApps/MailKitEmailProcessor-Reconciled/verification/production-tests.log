@@ -1,0 +1,11 @@
+Inside SyncCreateDocsItems
+Processing folder: signature
+Processing the file: E:\Source\EAOffice\MailKitEmailProcessorSync\reconciliation\production-test\verification-4daa48e8966641afb80ed85f7a2a4dbb\share\signature\42\asset.txt
+Copying to: E:\Source\EAOffice\MailKitEmailProcessorSync\reconciliation\production-test\verification-4daa48e8966641afb80ed85f7a2a4dbb\local\signature\42\asset.txt
+Processing folder: logo
+Processing the file: E:\Source\EAOffice\MailKitEmailProcessorSync\reconciliation\production-test\verification-4daa48e8966641afb80ed85f7a2a4dbb\share\logo\42\asset.txt
+Copying to: E:\Source\EAOffice\MailKitEmailProcessorSync\reconciliation\production-test\verification-4daa48e8966641afb80ed85f7a2a4dbb\local\logo\42\asset.txt
+Processing folder: images
+Processing the file: E:\Source\EAOffice\MailKitEmailProcessorSync\reconciliation\production-test\verification-4daa48e8966641afb80ed85f7a2a4dbb\share\images\42\asset.txt
+Copying to: E:\Source\EAOffice\MailKitEmailProcessorSync\reconciliation\production-test\verification-4daa48e8966641afb80ed85f7a2a4dbb\local\images\42\asset.txt
+PASS: 17 checks; assembly=E:\Source\EAOffice\MailKitEmailProcessorSync\reconciliation\production-test\MailKitEmailProcessor.exe; bypass=False

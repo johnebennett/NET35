@@ -14,7 +14,7 @@ Use Visual Studio/MSBuild with the .NET Framework 4.5.2 targeting pack:
 msbuild MailKitEmailProcessor.sln /t:Build /p:Configuration=Release
 ```
 
-Output: `bin/Release/MailKitEmailProcessor.exe`. The project retains the original assembly name, AnyCPU/prefer-32-bit settings, and version-generation convention. Checked arithmetic is enabled for both configurations to preserve overflow behavior seen in production. Dependency DLLs from the supplied source tree are in `lib/`, with project references pointing there; they are explicitly included by `.gitignore` exceptions.
+Output: `bin/Release/MailKitEmailProcessor.exe`. The project retains the original assembly name, AnyCPU/prefer-32-bit settings, and version-generation convention. Checked arithmetic is enabled for both configurations to preserve overflow behavior seen in production. Core dependencies use project references into `../../API/CoreAssemblies`; third-party references use the shared `../../packages` directory and pinned versions in `packages.config`.
 
 ## Reconciled behavior
 
@@ -56,3 +56,11 @@ The checks exercise account validation/copying, sender and reply-to copying, con
 
 See `RECONCILIATION.md` for comparison evidence and validation limitations.
 
+
+## Reference migration
+
+Backups of the modified project, solution and README are in `Backups\ReferenceMigration-20261110-140635`. The .NET Framework 4.5.2 target is preserved. Existing loose DLL versions were unavailable for comparison.
+
+MimeKit 3.0.0 requires System.Buffers 4.5.1, recorded in packages.config. Its shared package has a net45 reference assembly but no net45 runtime assembly. Its net461 runtime requires a newer framework; the netstandard1.1 runtime requires additional support packages absent from the shared directory. No incompatible runtime or reference-only DLL is copied into the output. This deployment dependency remains unresolved.
+
+Validation: all project/package HintPaths exist. The Release solution build compiled all four referenced core projects, then failed with CS0246 in Actions/RunIdProcessor.cs:60 because ConfigSettings is absent from this checkout. The README's tests/Verify-Reconciliation.ps1 is also absent. Application compilation and runtime compatibility could not be verified.
