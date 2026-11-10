@@ -1,0 +1,170 @@
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono Auto Generated)
+mono_crash.*
+
+# Mono auto generated files
+mono_crash.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Uncomment if you have tasks that create the project's static web assets directory
+#wwwroot/
+
+# Visual Studio artifact
+.vscode/
+
+# VS Code directories
+.vscode/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Virtual environment folders
+.env
+.env/
+
+# Node.js projects
+node_modules/
+npm-debug.log
+yarn-error.log
+.yarn-integrity
+
+# macOS file
+.DS_Store
+
+# Compiled object files
+*.o
+*.obj
+*.lo
+*.la
+*.al
+*.libs
+*.a
+*.la
+
+# Compiled Dynamic libraries
+*.dll
+*.so
+*.so.*
+*.dylib
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+*.iobj
+*.pdb
+*.ilk
+
+# Libraries
+*.lib
+
+# Compiled Static libraries
+*.dll
+*.dll.lib
+*.a
+
+# Compiled Object files
+*.so
+
+# Compiled Executables
+*.out
+*.app
+*.o
+*.lo
+*.la
+*.al
+.libs/
+*.dll
+*.lib
+*.a
+*.o
+*.lo
+.libs/
+
+# Code analysis reports
+*.code-analysis.xml
+
+# Crash reports
+*.dmp
+
+# Installer logs
+*.installstate
+*.msp
+*.msi
+*.log
+
+# Driver generated files
+*.drv
+*.sys
+*.inf
+
+# Cabal
+dist-newstyle/
+
+# Hex files
+*.hex
+
+# Compiled files
+*.sln.ide
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# Windows PowerShell
+*.psm1
+*.ps1
+
+# Cake
+tools/packages.config
+tools/packages.config.install
+tools/packages.config.install
+tools/packages.config
+
+# Others
+.idea/
+.vscode/
+.project
+.classpath
+.cordova/
+.sass-cache/
+.terraform/
+
+# End of Visual Studio template
+
+# Required offline build dependencies and repeatable verification script.
+!lib/*.dll
+!tests/*.ps1
+!verification/*.log
+
+#WinMerge backup files
+*.bak
